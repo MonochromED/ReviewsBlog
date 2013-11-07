@@ -1,0 +1,31 @@
+<!-- User Profile Page -->
+
+
+<% user = controller.getUser %>
+
+<%if user != nil%>
+	<% userInfo = controller.getUserInfo("#{user}") %>
+	<%if userInfo != nil%>
+
+	  <strong>Username: </strong> <%= userInfo.fullname %> <br />
+	  <strong>Email: </strong> <%= userInfo.email %>
+	  <br />
+	  <strong>Avatar:</strong>
+
+	  <br />
+	  <br />
+	  Upload Avatar:
+
+
+	  <%= render 'updateUserInfoForm' %>
+
+	  
+	<%else%>
+	  <% flash[:notice] = 'Requested user not found' %>
+	<%end%>
+
+<% else %>	
+	<strong><%= link_to 'Login to see user profile', {action: :login} %><br /></strong>
+<% end %>
+<br />
+<%= link_to 'Back', reviews_path %>

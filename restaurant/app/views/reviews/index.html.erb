@@ -1,0 +1,43 @@
+<!--The Main Window View -->
+
+<table>
+
+
+  <tbody>
+   
+    <br />  
+    <h1 id="mainWindow">Restaurant Reviews</h1>
+    <br />
+    <br />
+    <% for review in @reviews %>
+      <tr>
+        <tr>
+          <td>
+            <%= link_to review.title, review %>  submitted by <%= review.poster %><br />
+            <%= review.date %><br />
+            <%= review.article %><br /><br />
+            id Value: <%= review.id %><br/>
+          </td>
+        </tr>
+        <tr>
+          
+          <td><%= link_to 'Show', review %>
+            <%= link_to 'Edit', edit_review_path(review) %>
+            <%= link_to 'Delete', review, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'New Review', new_review_path %>
+
+
+
+
+
+<%= link_to 'RSS Feed', "reviews.rss"%> 
+
+

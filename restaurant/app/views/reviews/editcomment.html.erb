@@ -1,0 +1,13 @@
+<!-- edit comments view -->
+
+<h2>Edit Comment:</h2>
+
+<h2>Comments:</h2>
+<% commentToEdit = Comment.find(params[:commentid])%>
+Comment ID: <%= commentToEdit.id %> <br />
+<%= text_area "comment", "comment", :rows => 5 %><br />
+
+
+<%= submit_tag "Comment" %>
+
+Update comments, and all related functions to its own controller.  
