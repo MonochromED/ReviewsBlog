@@ -81,7 +81,18 @@ class ReviewsController < ApplicationController
 
   def editcomment
 
+      
   end
+
+  def updatecomment
+      if commentToEdit = Comment.find(params[:commentid])
+
+        commentToEdit.comment = "#{params[:commentText]}"
+        commentToEdit.save
+      end
+      redirect_to review_path "#{params[:reviewid]}"
+  end
+
 
   def deletecomment
     if commentToDelete = Comment.find(params[:commentid])

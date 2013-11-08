@@ -2,12 +2,23 @@
 
 <h2>Edit Comment:</h2>
 
-<h2>Comments:</h2>
+
 <% commentToEdit = Comment.find(params[:commentid])%>
+<% comment_id_value = commentToEdit.id %>
+<% review_id = params[:reviewid].to_s %>
+
 Comment ID: <%= commentToEdit.id %> <br />
-<%= text_area "comment", "comment", :rows => 5 %><br />
+Comment Text: <%= commentToEdit.comment%> <br />
 
 
-<%= submit_tag "Comment" %>
+<!--Display current user comment and allow for update. -->
+<%= form_tag :action => :updatecomment, :commentid => "#{comment_id_value}", :reviewid => "#{review_id}" do %>
 
-Update comments, and all related functions to its own controller.  
+
+<%= text_area_tag :commentText, commentToEdit.comment %>
+<%= submit_tag "Update Comment" %>
+
+<% returnPage = review_path "#{review_id}"%>
+<%= link_to 'Back', returnPage %>
+<% end %> 
+

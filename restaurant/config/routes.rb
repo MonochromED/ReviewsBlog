@@ -25,8 +25,11 @@ Restaurant::Application.routes.draw do
       post 'comment'
       post 'avatar'
       get 'editcomment'
-      post 'editcomment'
+      
       get 'deletecomment'
+      post 'updatecomment'
+
+
     end
   end
   
