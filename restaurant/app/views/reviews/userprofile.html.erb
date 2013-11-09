@@ -14,18 +14,38 @@
 
 	  <br />
 	  <br />
-	  Upload Avatar:
+	  
 
 
-	  <%= render 'updateUserInfoForm' %>
+	  
+
+	Update Profile
+
+	<%= form_tag :action => :updateProfileInfo ,:userIdToEdit => "#{userInfo.userid}" do %>
+
+	<%= label_tag :email %>
+	<%= text_field_tag :emailupdate, userInfo.email %>
+
+	<br />
+	<br />
+	<%= submit_tag "Update Profile" %>
+
+
+	<% end %> 
+
 
 	  
 	<%else%>
 	  <% flash[:notice] = 'Requested user not found' %>
 	<%end%>
 
+
+
 <% else %>	
 	<strong><%= link_to 'Login to see user profile', {action: :login} %><br /></strong>
 <% end %>
+
+
+
 <br />
 <%= link_to 'Back', reviews_path %>

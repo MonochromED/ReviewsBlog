@@ -167,9 +167,9 @@ class ReviewsController < ApplicationController
   def getUserInfo(userInfo = nil)
     userInfo = User.find_by userid: "#{userInfo}"
     if (userInfo != nil)
-    userInfo
+      userInfo
     else
-    nil
+      nil
     end
   end
 
@@ -177,6 +177,7 @@ class ReviewsController < ApplicationController
   def getUserAvatar(userInfo = nil)
     userAvatar = Avatar.find_by avatar_user_id: "celi999"
     userAvatar
+
   end
    
   #posts up avatar  
@@ -191,6 +192,21 @@ class ReviewsController < ApplicationController
       false
     end
   end
+
+  def updateProfileInfo
+
+    userInfo = getUserInfo(params[:userIdToEdit])
+
+    if userInfo != nil
+      userInfo.email = params[:emailupdate]   
+      userInfo.save
+    else
+      nil
+    end
+
+        redirect_to userprofile_reviews_path
+  end
+
 
 
 

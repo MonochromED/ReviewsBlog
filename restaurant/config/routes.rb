@@ -28,7 +28,7 @@ Restaurant::Application.routes.draw do
       
       get 'deletecomment'
       post 'updatecomment'
-
+      post 'updateProfileInfo'
 
     end
   end
