@@ -164,6 +164,8 @@ class ReviewsController < ApplicationController
     user
   end
 
+#migrated to the application_controller
+=begin
   def getUserInfo(userInfo = nil)
     userInfo = User.find_by userid: "#{userInfo}"
     if (userInfo != nil)
@@ -172,6 +174,7 @@ class ReviewsController < ApplicationController
       nil
     end
   end
+=end
 
   #Does not currently work
   def getUserAvatar(userInfo = nil)

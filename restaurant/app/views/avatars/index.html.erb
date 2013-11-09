@@ -1,0 +1,15 @@
+<h1>Avatars#index</h1>
+
+<% for avatar in @avatars %>
+
+      <tr>
+        <tr>
+          <td>
+            <%= link_to avatar.avatar_user_id, avatar %>  table id: <%= avatar.avatar_user_id %><br />
+           	Avatar Created at: <%= avatar.created_at %>
+
+          </td>
+        </tr>
+        <tr>
+<%= link_to 'Show', avatar %>
+<% end %>

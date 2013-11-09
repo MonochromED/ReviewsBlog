@@ -25,7 +25,7 @@
 	    	<%if user != nil%>
 	    		<strong><%= link_to 'Logout', { :action => :logout} %><br /></strong>
 	    		<strong> Hello, <%= user %><br /> </strong>	
-	    		<strong><%= link_to 'User Profile', { :action => :userprofile} %> </strong>
+	    		<strong><%= link_to 'User Profile', userprofile_reviews_path , { :action => :userprofile} %> </strong>
 	    	<%elsif user === nil%>
 	    		<strong><%= link_to 'Login to post', { :action => :login} %><br /></strong>
 	    	<%else%>
@@ -38,7 +38,7 @@
 	    	<strong><%= link_to 'Register for free login', {:action => :register} %><br /></strong>
 	    	<strong><%= link_to 'Post a new review', new_review_path %><br /></strong>
 	    	<br />
-	    	<%= form_tag :action => 'search' do %>
+	    	<%= form_tag '/reviews/search' , :method => 'search' do %>
 		    <label><font color="tan" size="-1">Search for review:</font> </label>
 		    <%= text_field_tag :searchFor, nil, :class =>"search_bar" %>
 		    <%= submit_tag "Find", :class => "search_bar" %>
@@ -54,7 +54,7 @@
 		<div id="news">
 		<h2>What's cookin'</h2><br />
     	The latest restaurant news<br />
-    	<%= render( :partial => "news") %>
+    	<%= render( :partial => "reviews/news") %>
 		</div>
 	</div>
 	<div id="footer">

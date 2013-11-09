@@ -1,6 +1,6 @@
 <!-- User Profile Page -->
-
-
+<!--update this to allow for viewing by others.  Will need to fix how userInfo is determined -->
+<!--consider adding default avatar if user has not uploaded in one -->
 <% user = controller.getUser %>
 
 <%if user != nil%>
@@ -10,7 +10,19 @@
 	  <strong>Username: </strong> <%= userInfo.fullname %> <br />
 	  <strong>Email: </strong> <%= userInfo.email %>
 	  <br />
-	  <strong>Avatar:</strong>
+	  <div ><strong style="vertical-align: top">Avatar:</strong>
+	  <!--Check if user has uploaed an avatar. -->
+	  <% user_avatar = Avatar.find_by avatar_user_id: "#{user}" %>
+	  <% if user_avatar != nil %>
+	  	<%= image_tag user_avatar.avatar.url() %>
+	  </div>
+	  <%= link_to 'Upload New Avatar', edit_avatar_path(user_avatar) %>
+
+	  <% else %>
+	  </div>
+	  <%= link_to 'Upload New Avatar', new_avatar_path() %>
+
+	  <% end %>
 
 	  <br />
 	  <br />
