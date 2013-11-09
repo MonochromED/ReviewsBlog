@@ -22,8 +22,10 @@
         <tr>
           
           <td><%= link_to 'Show', review %>
-            <%= link_to 'Edit', edit_review_path(review) %>
-            <%= link_to 'Delete', review, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% if controller.belongsToCurrentUser("#{review.poster}") %>
+              <%= link_to 'Edit', edit_review_path(review) %>
+              <%= link_to 'Delete', review, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
           </td>
         </tr>
       </tr>
@@ -31,13 +33,9 @@
   </tbody>
 </table>
 
-
+<br />
+<br />
 <%= link_to 'New Review', new_review_path %>
-
-
-
-
-
 <%= link_to 'RSS Feed', "reviews.rss"%> 
 
 

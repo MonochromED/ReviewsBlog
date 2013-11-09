@@ -40,13 +40,13 @@
 	    	<br />
 	    	<%= form_tag :action => 'search' do %>
 		    <label><font color="tan" size="-1">Search for review:</font> </label>
-		    <%= text_field_tag :searchFor %>
-		    <%= submit_tag "Find" %>
+		    <%= text_field_tag :searchFor, nil, :class =>"search_bar" %>
+		    <%= submit_tag "Find", :class => "search_bar" %>
 		    <% end %> 
 		</div>
 		<div id="main">
 			<p style="color: orange"><%= flash[:notice] %></p>
-			<%=yield%><!--the 'yield' will yield to the code located in the index.html.erb file 
+			<%= yield %><!--the 'yield' will yield to the code located in the index.html.erb file 
 			within the current directory for the site.  Thus, if this is for the reviews/index, then yield will
 			yield to the code located within reviews/index.html.erb.  If it is accessed by
 			restaurant/index, then it will yield to the code located in the restaurant/index.html.erb code.-->

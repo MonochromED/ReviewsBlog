@@ -173,6 +173,7 @@ class ReviewsController < ApplicationController
     end
   end
 
+  #Does not currently work
   def getUserAvatar(userInfo = nil)
     userAvatar = Avatar.find_by avatar_user_id: "celi999"
     userAvatar
@@ -181,6 +182,14 @@ class ReviewsController < ApplicationController
   #posts up avatar  
   def avatar
 
+  end
+
+  def belongsToCurrentUser(userid)
+    if session[:user_id] === userid
+      true
+    else
+      false
+    end
   end
 
 

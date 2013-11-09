@@ -17,8 +17,9 @@
   <strong>Article:</strong>
   <%= @review.article %>
 </p>
-
-<%= link_to 'Edit', edit_review_path(@review) %> |
+<% if controller.belongsToCurrentUser("#{@review.poster}") %>
+  <%= link_to 'Edit', edit_review_path(@review) %>|
+<% end %>
 <%= link_to 'Back', reviews_path %>
 
 
@@ -32,9 +33,12 @@
    Comment ID:<%= comment.id %> <br /><br />
    <%@comment_id_value = comment.id %>
    <%@review_id_value = @review.id %>
-   <%= link_to 'Edit', action: :editcomment, :commentid => @comment_id_value, :reviewid => @review_id_value %> |
-   <%= link_to 'Delete Comment', action: :deletecomment, :commentid => @comment_id_value, :reviewid => @review_id_value  %><br />
-   <%end%>
+   <!--Validate that current logged user has ownership of this post -->
+     <% if controller.belongsToCurrentUser("#{comment.poster}") %>
+       <%= link_to 'Edit', action: :editcomment, :commentid => @comment_id_value, :reviewid => @review_id_value %> |
+       <%= link_to 'Delete Comment', action: :deletecomment, :commentid => @comment_id_value, :reviewid => @review_id_value  %><br />
+     <% end %>
+   <% end %>
 
 </p>
 <hr />
