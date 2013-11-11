@@ -63,7 +63,7 @@ class UsersController < ApplicationController
   end
 
 
-
+  #default registered user access level is 3, unregistered is 4, 1 is admin, 2 is moderator
   def newuser
     respond_to do |format|
       user = User.new
@@ -71,6 +71,7 @@ class UsersController < ApplicationController
       user.password = params[:password]
       user.fullname = params[:fullname]
       user.email = params[:email]
+      user.access_rank = 3
       if user.save
         session[:user_id] = user.userid
         flash[:notice] = 'New User ID was successfully created.'

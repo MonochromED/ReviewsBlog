@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131105064312) do
+ActiveRecord::Schema.define(version: 20131111123619) do
 
   create_table "avatars", force: true do |t|
     t.string   "avatar_user_id"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20131105064312) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "access_rank"
   end
 
 end

@@ -31,6 +31,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1/edit
   def edit
+
   end
 
   # POST /reviews
@@ -52,13 +53,19 @@ class ReviewsController < ApplicationController
   # PATCH/PUT /reviews/1
   # PATCH/PUT /reviews/1.json
   def update
-    respond_to do |format|
-      if @review.update(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
-        format.json { head :no_content }
-      else
+    if (belongsToCurrentUser("#{@review.poster}") || getAccessRank <= 1  )
+      respond_to do |format|
+        if @review.update(review_params)
+          format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+          format.json { head :no_content }
+        end
+      end
+    else
+      respond_to do |format|
         format.html { render action: 'edit' }
         format.json { render json: @review.errors, status: :unprocessable_entity }
+        flash[:notice] = 'You do not have permission to edit this review'
+
       end
     end
   end
@@ -66,10 +73,18 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1
   # DELETE /reviews/1.json
   def destroy
-    @review.destroy
-    respond_to do |format|
+    if (belongsToCurrentUser("#{@review.poster}") || getAccessRank <= 1  )
+      @review.destroy
+      respond_to do |format|
+        format.html { redirect_to reviews_url }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
       format.html { redirect_to reviews_url }
       format.json { head :no_content }
+      flash[:notice] = 'You do not have permission to delete this review'
+      end
     end
   end
 
@@ -85,21 +100,32 @@ class ReviewsController < ApplicationController
   end
 
   def updatecomment
-      if commentToEdit = Comment.find(params[:commentid])
 
+    if commentToEdit = Comment.find(params[:commentid])
+      if (belongsToCurrentUser("#{commentToEdit.poster}") || getAccessRank <= 1  )
         commentToEdit.comment = "#{params[:commentText]}"
         commentToEdit.save
+      else
+        flash[:notice] = 'You do not have permission to edit this comment'
       end
-      redirect_to review_path "#{params[:reviewid]}"
+    end
+    redirect_to review_path "#{params[:reviewid]}"
+
   end
 
 
   def deletecomment
+  
     if commentToDelete = Comment.find(params[:commentid])
-      commentToDelete.destroy
+      if (belongsToCurrentUser("#{commentToDelete.poster}") || getAccessRank <= 1  )
+        commentToDelete.destroy
+      else
+        flash[:notice] = 'You do not have permission to edit this comment'
+      end
     end
     redirect_to :action => "show", :id => params[:reviewid]
   end
+
 
 
   def search

@@ -64,7 +64,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
+  #Returns the access rank of the current user
+  def getAccessRank
+    user = getUser
+    if user != nil
+      user_rank = User.find_by userid: "#{user}"
+      user_rank.access_rank
+    else
+      user_rank = 4
+    end
+  end
   
 end
 

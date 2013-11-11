@@ -8,7 +8,8 @@
 	<%if userInfo != nil%>
 
 	  <strong>Username: </strong> <%= userInfo.fullname %> <br />
-	  <strong>Email: </strong> <%= userInfo.email %>
+	  <strong>Email: </strong> <%= userInfo.email %><br />
+	  <strong>Access Rank: </strong> <%= controller.getAccessRank %>
 	  <br />
 	  <div ><strong style="vertical-align: top">Avatar:</strong>
 	  <!--Check if user has uploaed an avatar. -->
