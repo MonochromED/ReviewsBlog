@@ -33,7 +33,7 @@ Restaurant::Application.routes.draw do
       
       get 'deletecomment'
       post 'updatecomment'
-      post 'updateProfileInfo'
+
     end
   end
   get "reviews/index"
@@ -51,7 +51,23 @@ Restaurant::Application.routes.draw do
       
       get 'deletecomment'
       post 'updatecomment'
+
+
+    end
+  end
+
+    get "users/index"
+  resources :users do
+    collection do
+      get 'login'
+      get 'register'
+      get 'logout'
+      get 'userprofile'
+      post 'newuser'
+      post 'validate'
+      post 'search'
       post 'updateProfileInfo'
+
 
     end
   end

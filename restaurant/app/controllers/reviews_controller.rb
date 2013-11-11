@@ -150,19 +150,22 @@ class ReviewsController < ApplicationController
     end  
   end
 
+#migrated to application_controller
+=begin
   def logout
     
     respond_to do |format|
       session.delete(:user_id)
       flash[:notice] = 'User successfully logged out'
-      format.html {redirect_to '/reviews' }
+      format.html {redirect_to '/avatars' }
     end
   end
-
+=end
   def getUser
     user = session[:user_id]
     user
   end
+
 
 #migrated to the application_controller
 =begin
@@ -182,12 +185,9 @@ class ReviewsController < ApplicationController
     userAvatar
 
   end
-   
-  #posts up avatar  
-  def avatar
 
-  end
-
+# moved to application_controller
+=begin
   def belongsToCurrentUser(userid)
     if session[:user_id] === userid
       true
@@ -195,7 +195,10 @@ class ReviewsController < ApplicationController
       false
     end
   end
+=end
 
+#moved to users_controller
+=begin
   def updateProfileInfo
 
     userInfo = getUserInfo(params[:userIdToEdit])
@@ -209,7 +212,7 @@ class ReviewsController < ApplicationController
 
         redirect_to userprofile_reviews_path
   end
-
+=end
 
 
 

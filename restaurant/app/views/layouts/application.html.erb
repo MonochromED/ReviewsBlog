@@ -25,9 +25,9 @@
 	    	<%if user != nil%>
 	    		<strong><%= link_to 'Logout', { :action => :logout} %><br /></strong>
 	    		<strong> Hello, <%= user %><br /> </strong>	
-	    		<strong><%= link_to 'User Profile', userprofile_reviews_path , { :action => :userprofile} %> </strong>
+	    		<strong><%= link_to 'User Profile', userprofile_users_path , { :action => :userprofile} %> </strong>
 	    	<%elsif user === nil%>
-	    		<strong><%= link_to 'Login to post', { :action => :login} %><br /></strong>
+	    		<strong><%= link_to 'Login to post', login_users_path %><br /></strong>
 	    	<%else%>
 	    	<%end%>
 
@@ -35,7 +35,7 @@
 	    	
 
 	    	<p style="color: orange"><%= flash[:notice] %></p>
-	    	<strong><%= link_to 'Register for free login', register_reviews_path, {:action => :register} %><br /></strong>
+	    	<strong><%= link_to 'Register for free login', register_users_path %><br /></strong>
 	    	<strong><%= link_to 'Post a new review', new_review_path %><br /></strong>
 	    	<br />
 	    	<%= form_tag '/reviews/search' , :method => 'search' do %>

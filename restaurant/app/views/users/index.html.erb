@@ -1,0 +1,26 @@
+<h1>Users#index</h1>
+<table>
+
+
+  <tbody>
+   
+    <br />  
+    <h1 id="mainWindow">Restaurant Reviews</h1>
+    <br />
+    <br />
+    <% for user in @users %>
+      <tr>
+        <tr>
+          <td>
+            <%= link_to user.userid, user %><br />
+            <%= user.fullname %><br />
+            User id Value: <%= user.id %><br/>
+          </td>
+        </tr>
+        <tr>
+          
+        </tr>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

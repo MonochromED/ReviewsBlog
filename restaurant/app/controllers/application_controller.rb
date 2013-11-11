@@ -56,6 +56,15 @@ class ApplicationController < ActionController::Base
     where("title LIKE ? OR article LIKE ? OR poster LIKE ?", pattern, pattern, pattern)
   end
 
+  def belongsToCurrentUser(userid)
+    if session[:user_id] === userid
+      true
+    else
+      false
+    end
+  end
 
+
+  
 end
 
