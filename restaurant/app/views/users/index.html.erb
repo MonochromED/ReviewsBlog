@@ -24,3 +24,8 @@
     <% end %>
   </tbody>
 </table>
+<br />
+<br />
+  <% if @users != nil %>
+  <%= will_paginate @users, :previous_label => '&#8592; Prev 5 Users', :next_label => 'Next 5 Users &#8594;' %>
+  <% end %>

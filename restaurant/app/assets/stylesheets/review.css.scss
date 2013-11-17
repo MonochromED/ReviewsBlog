@@ -133,3 +133,28 @@ h4{
 .search_bar{
       border-radius:5px;
 }
+
+#search_icon{
+      width: 95%;
+      height: 20px;
+      background-color: tan;
+      color: black;
+      border-radius: 10px;
+      text-align: center;
+      cursor:pointer;
+}
+
+#search_bar_area{
+      border: 2px solid tan;
+      width: 95%;
+      height: 50px;
+      display: none;
+      border-radius: 5px;
+
+}
+
+#find_button{
+      float: right; 
+      padding-right: 25px;
+}
+

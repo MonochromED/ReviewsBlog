@@ -20,7 +20,7 @@
 	    	<h2>Welcome</h2>
 	    	<br />
 	    	<strong><%= link_to 'Home', '/reviews' %><br /><br /></strong>
-
+			
 	    	<% user = controller.getUser %>
 	    	<%if user != nil%>
 	    		<strong><%= link_to 'Logout', { :action => :logout} %><br /></strong>
@@ -38,11 +38,16 @@
 	    	<strong><%= link_to 'Register for free login', register_users_path %><br /></strong>
 	    	<strong><%= link_to 'Post a new review', new_review_path %><br /></strong>
 	    	<br />
-	    	<%= form_tag '/reviews/search' , :method => 'search' do %>
-		    <label><font color="tan" size="-1">Search for review:</font> </label>
-		    <%= text_field_tag :searchFor, nil, :class =>"search_bar" %>
-		    <%= submit_tag "Find", :class => "search_bar" %>
-		    <% end %> 
+	    	<div id='search_icon'> Search?</div>
+	    	<div id='search_bar_area'>
+	    		<%= form_tag '/reviews/search' , :method => 'search' do %>
+		    	<label><font color="tan" size="-1">Search for review:</font> </label>
+		    	<%= text_field_tag :searchFor, nil, :class =>"search_bar" %>
+		    	<div id="find_button"><%= submit_tag "Find", :class => "search_bar" %></div>
+		    	<% end %> 
+	    	</div>
+
+
 		</div>
 		<div id="main">
 			<p style="color: orange"><%= flash[:notice] %></p>
@@ -68,7 +73,7 @@
 	<% tempVar = "/assets/banner.jpg" %>
 	<% tempVarText = "NoImageFound" %>
 <%= image_tag "#{tempVar}", alt: "#{tempVarText}" %>
-	
+
 	
 </body>
 </html>
