@@ -147,14 +147,15 @@ h4{
 #search_bar_area{
       border: 2px solid tan;
       width: 95%;
-      height: 50px;
-      display: none;
+      height: auto;
+      //display: none;
       border-radius: 5px;
+      float:auto;
 
 }
 
 #find_button{
-      float: right; 
+      float: auto; 
       padding-right: 25px;
 }
 

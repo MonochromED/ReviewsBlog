@@ -43,7 +43,7 @@
 	    		<%= form_tag '/reviews/search' , :method => 'search' do %>
 		    	<label><font color="tan" size="-1">Search for review:</font> </label>
 		    	<%= text_field_tag :searchFor, nil, :class =>"search_bar" %>
-		    	<div id="find_button"><%= submit_tag "Find", :class => "search_bar" %></div>
+		    	<%= submit_tag "Find", :class => "search_bar", :id => "find_button" %>
 		    	<% end %> 
 	    	</div>
 
