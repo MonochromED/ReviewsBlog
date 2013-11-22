@@ -27,7 +27,7 @@ Restaurant::Application.routes.draw do
       get 'userprofile'
       post 'newuser'
       post 'validate'
-      post 'search'
+      get 'search'
       post 'comment'
       get 'editcomment'
       
@@ -45,7 +45,7 @@ Restaurant::Application.routes.draw do
       get 'userprofile'
       post 'newuser'
       post 'validate'
-      post 'search'
+      get 'search'
       post 'comment'
       get 'editcomment'
       
@@ -65,7 +65,7 @@ Restaurant::Application.routes.draw do
       get 'userprofile'
       post 'newuser'
       post 'validate'
-      post 'search'
+      get 'search'
       post 'updateProfileInfo'
 
 

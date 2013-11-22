@@ -40,9 +40,9 @@
 	    	<br />
 	    	<div id='search_icon'> Search?</div>
 	    	<div id='search_bar_area'>
-	    		<%= form_tag '/reviews/search' , :method => 'search' do %>
+	    		<%= form_tag search_reviews_path , :method => 'get' do %>
 		    	<label><font color="tan" size="-1">Search for review:</font> </label>
-		    	<%= text_field_tag :searchFor, nil, :class =>"search_bar" %>
+		    	<%= text_field_tag :searchFor, params[:searchFor], :class =>"search_bar" %>
 		    	<%= submit_tag "Find", :class => "search_bar", :id => "find_button" %>
 		    	<% end %> 
 	    	</div>
