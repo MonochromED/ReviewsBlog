@@ -57,9 +57,17 @@
 			restaurant/index, then it will yield to the code located in the restaurant/index.html.erb code.-->
 		</div>
 		<div id="news">
-		<h2>What's cookin'</h2><br />
-    	The latest restaurant news<br />
-    	<%= render( :partial => "reviews/news") %>
+			<div id="news_minimize">
+				Minimize
+			</div>
+			<div id="news_pull_tab">
+				news pull tab
+			</div>
+			<div id="news_content">
+			<h2>What's cookin'</h2><br />
+	    	The latest restaurant news<br />
+	    	<%= render( :partial => "reviews/news") %>
+			</div>
 		</div>
 	</div>
 	<div id="footer">
