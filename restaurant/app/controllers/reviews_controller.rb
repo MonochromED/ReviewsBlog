@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   # GET /reviews
   # GET /reviews.json
-  
+  require 'will_paginate/array' #used for combining 2 SQL request objects and paginating it properly
   def index
     #@reviews = Review.order('id desc').limit(5)
     @reviews = Review.paginate(:page => params[:page], :per_page => 5).order('id desc')
@@ -134,8 +134,28 @@ class ReviewsController < ApplicationController
 
     #'pattern' variable must be listed as many times as '?' is used.
     #@reviews = Review.where("title LIKE ? OR article LIKE ? OR poster LIKE ?", pattern, pattern, pattern)
-    @reviews = Review.paginate(:page => params[:page], :per_page => 5).
-    where("title LIKE ? OR article LIKE ? OR poster LIKE ?", pattern, pattern, pattern)
+    #@reviews = Review.paginate(:page => params[:page], :per_page => 5).
+    #where("title LIKE ? OR article LIKE ? OR poster LIKE ?", pattern, pattern, pattern)
+
+    @reviews = Review.where("title LIKE ? OR article LIKE ? OR poster LIKE ?", pattern, pattern, pattern).order("id desc")
+
+    #gets review_id value of comments matching search pattern.  Adds those reviews to the search result
+    @comments = Comment.where("comment LIKE ? OR poster LIKE ?", pattern, pattern).order("id desc")
+    review_ids_with_matching_comment = Array.new
+
+    for comment in @comments
+      review_ids_with_matching_comment.push(comment.review_id)
+    end
+
+    review_ids_with_matching_comment.each do |review_id|
+      @reviews = @reviews + Review.where("id LIKE ?", review_id)
+    end
+
+
+
+    #paginate combined SQL returns
+    @reviews = @reviews.paginate(:page => params[:page], :per_page => 5)
+
   end
 
 
