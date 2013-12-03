@@ -17,7 +17,18 @@ Restaurant::Application.routes.draw do
     end
   end
 
-  get "comment/index"
+  get "comments/index"
+  resources :comments do
+    collection do
+      get 'login'
+      get 'register'
+      get 'logout'
+      get 'userprofile'
+      post 'newuser'
+      post 'validate'
+      post 'search'
+    end
+  end
   get "restaurant/index"
   resources :restaurant do
     collection do
@@ -56,7 +67,7 @@ Restaurant::Application.routes.draw do
     end
   end
 
-    get "users/index"
+  get "users/index"
   resources :users do
     collection do
       get 'login'
@@ -71,6 +82,8 @@ Restaurant::Application.routes.draw do
 
     end
   end
+
+
   
 
 

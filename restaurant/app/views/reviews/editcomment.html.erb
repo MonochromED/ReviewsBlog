@@ -6,9 +6,9 @@
 <% commentToEdit = Comment.find(params[:commentid])%>
 <% comment_id_value = commentToEdit.id %>
 <% review_id = params[:reviewid].to_s %>
-
-Comment ID: <%= commentToEdit.id %> <br />
-Comment Text: <%= commentToEdit.comment%> <br />
+<br />
+Comment ID: <%= commentToEdit.id %> <br /><br />
+Comment Text: <%= commentToEdit.comment%> <br /><br />
 
 
 <!--Display current user comment and allow for update. -->
@@ -16,8 +16,10 @@ Comment Text: <%= commentToEdit.comment%> <br />
 
 
 <%= text_area_tag :commentText, commentToEdit.comment %>
+<br />
+<br />
 <%= submit_tag "Update Comment" %>
-
+<br />
 <% returnPage = review_path "#{review_id}"%>
 <%= link_to 'Back', returnPage %>
 <% end %> 
