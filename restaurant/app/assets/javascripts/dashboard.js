@@ -4,7 +4,7 @@ $(document).ready(function(){
 	$('#news_pull_tab').click(function(){
         $('#news #news_content, #news_minimize').animate({width:'75%', height:"100%"}, 500 ).show();
 	    $("#news").animate({width:"26%"},1000);
-	    $("#main").animate({width:"50%"},1000);
+	    $("#main").animate({width:"45%"},1000);
 	    $(this).animate({height:"240px"},10);
 
 
