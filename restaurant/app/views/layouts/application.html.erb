@@ -38,7 +38,7 @@
 	    	<strong><%= link_to 'Register for free login', register_users_path %><br /></strong>
 	    	<strong><%= link_to 'Post a new review', new_review_path %><br /></strong>
 	    	<br />
-	    	<div id='search_icon'> Search?</div>
+	    	<div id='search_icon' class='button'> Search?<span class="infobox">Click to Expand</span></div>
 	    	<div id='search_bar_area'>
 	    		<%= form_tag search_reviews_path , :method => 'get' do %>
 		    	<label><font color="tan" size="-1">Search for review:</font> </label>
