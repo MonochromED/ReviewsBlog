@@ -138,24 +138,12 @@ class ReviewsController < ApplicationController
     #where("title LIKE ? OR article LIKE ? OR poster LIKE ?", pattern, pattern, pattern)
 
     @reviews = Review.where("title LIKE ? OR article LIKE ? OR poster LIKE ?", pattern, pattern, pattern).order("id desc")
-
-    #gets review_id value of comments matching search pattern.  Adds those reviews to the search result
     @comments = Comment.where("comment LIKE ? OR poster LIKE ?", pattern, pattern).order("id desc")
-    review_ids_with_matching_comment = Array.new
 
-    for comment in @comments
-      review_ids_with_matching_comment.push(comment.review_id)
-    end
-
-    review_ids_with_matching_comment.each do |review_id|
-      @reviews = @reviews + Review.where("id LIKE ?", review_id)
-    end
-
-
-
+    @search_results = @reviews + @comments
+    
     #paginate combined SQL returns
-    @reviews = @reviews.paginate(:page => params[:page], :per_page => 5)
-
+    @search_results = @search_results.paginate(:page => params[:page], :per_page => 5)
   end
 
 
