@@ -8,48 +8,54 @@
 </head>
 
 <body id = "dashboardMain">
-    <div>
-    	<a href = "/" id = "headerBannerLink"> <h1 id="headerBanner">Ed's Restaurant Reviews</h1> </a>
+    <div id = "header">
+    	<a href = "/" id = "headerBannerLink"> <h1 id="headerBanner">Ed's Restaurant Reviews</h1>
+    		<div id="slogan">In Search of Delicious Food</div> 
+    	</a>
 
-    <h4 id="slogan">In Search of Delicious Food</h4>
-	<div id='search_icon' class='button'> Search?<span class="infobox">Click to Expand</span></div>
-	<div id='search_bar_area'>
-		<%= form_tag search_reviews_path , :method => 'get' do %>
-    	<label><font color="tan" size="-1">Search for review:</font> </label>
-    	<%= text_field_tag :searchFor, params[:searchFor], :class =>"search_bar" %>
-    	<%= submit_tag "Find", :class => "search_bar", :id => "find_button" %>
-    	<% end %> 
+    
+    </div>
+
+	<div id='search_pane'>
+    	<div id='search_icon' class='button'> Search?<span class="infobox">Click to Expand</span></div>
+		<div id='search_bar_area'>
+			<%= form_tag search_reviews_path , :method => 'get' do %>
+	    	<label><font color="tan" size="-1">Search for review:</font> </label>
+	    	<%= text_field_tag :searchFor, params[:searchFor], :class =>"search_bar" %>
+	    	<%= submit_tag "Find", :class => "search_bar", :id => "find_button" %>
+	    	<% end %> 
+		</div>
 	</div>
+
     <br />
 
-    </div>
+
     <div id="content">
     	<div id="navigation">
-			<h2>Welcome</h2>
-			<% user = controller.getUser %>
+			
+			<div id="navigation_elements_panel">
 
-	    	
-	    	<%if user != nil%>
-	    		
-	    		<strong> Hello, <%= user %> </strong>
-	    		<strong><%= link_to 'User Profile', userprofile_users_path , { :action => :userprofile, :class => "navigation_element"}  %> </strong>
-	    		<strong><%= link_to 'Logout', { :action => :logout}, :class => "navigation_element"  %></strong>
-	    	<%elsif user === nil%>
-	    		<strong><%= link_to 'Login to post', login_users_path, :class => "navigation_element"  %></strong>
-	    	<%else%>
-	    	<%end%>
-
-	    	
-	    	
+				<% user = controller.getUser %>
+		    	
+		    	<%if user != nil%>
+		    		
+		    		<strong> Hello, <%= user %> </strong>
+		    		<strong><%= link_to 'User Profile', userprofile_users_path , { :action => :userprofile, :class => "navigation_element"}  %> </strong>
+		    		<strong><%= link_to 'Logout', { :action => :logout}, :class => "navigation_element"  %></strong>
+		    	<%elsif user === nil%>
+		    		<strong><%= link_to 'Login to post', login_users_path, :class => "navigation_element"  %></strong>
+		    	<%else%>
+		    	<%end%>
 
 
-	    	<strong><%= link_to 'Register for free login', register_users_path, :class => "navigation_element"  %></strong>
-	    	<strong><%= link_to 'Post a new review', new_review_path, :class => "navigation_element"  %></strong>
-	    	<navigation_flash_notice><%= flash[:notice] %></navigation_flash_notice>
-
-
-
+	    		<strong><%= link_to 'Register for free login', register_users_path, :class => "navigation_element"  %></strong>
+	    		<strong><%= link_to 'Post a new review', new_review_path, :class => "navigation_element"  %></strong>
+	    		<navigation_flash_notice><%= flash[:notice] %></navigation_flash_notice>
+			</div>
 		</div>
+
+
+
 		<div id="main">
 			<p style="color: orange"><%= flash[:notice] %></p>
 			<%= yield %><!--the 'yield' will yield to the code located in the index.html.erb file 

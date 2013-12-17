@@ -26,18 +26,28 @@ h1{
 
 }
 
+#header{
+  position:absolute;
+  left: 0px;
+  top: 0px;
+  background-color: white;
+  width: 100%;
+
+}
+
 #headerBanner{
-	background: #112233 url(/assets/images/banner.jpg) no-repeat top right;
+	background: #ffffff url(/assets/images/banner.jpg) no-repeat top right;
     //box-shadow: 0px 0px 2px 2px #ffd08c;
 	box-shadow: inset 0px 0px 2px 2px rgba(255,255,255,0.9);
 	margin: 10px;
+  margin-bottom: 0px;
 	padding: 10px;
 	border-radius: 5px;
 	border-style: solid;
-	border-color: black;
+	border-color: white;
 	border-width: 2px;
 	font-family: Verdana,Arial,sans-serif;
-	font-size: 120%;
+	font-size: 160%;
 	color: tan;
 
 }
@@ -72,33 +82,33 @@ h4{
  margin: 0px;
  padding: 0px;
 }
-#header {
-      width: 99%;
-      height: 90px;
-      padding: 7px;
-      border-bottom: 1px solid gray;
-      margin-bottom: 2px;
-      }
+
 
 #navigation {
+      margin: 30px;
+      margin-top: 100px;
+      margin-bottom: 2px;
       float: top;
       //position: absolute;
       width: calc(100% - 80px);
       width: -webkit-calc(100% - 80px);
       width: -o-calc(100% - 80px);
       width: -ms-calc(100% - 80px);
-      height: 35px;
-      padding: 12px;
+      height: 20px;
+      padding: 10px;
       border-bottom: 1px solid gray;
       border-top: 1px solid gray;
       border-right: 1px solid gray;
       border-left: 1px solid gray;
       background-color: #112233;
-      margin-bottom: 2px;
+
       z-index: 1;
 }
 
 
+#navigation_elements_panel{
+  vertical-align: text-center;
+}
 
 .navigation_element {
       display: inline-block;
@@ -123,6 +133,7 @@ h4{
 
 navigation_flash_notice{
   color: orange;
+  width: 150px;
 }
 
 
@@ -152,9 +163,16 @@ navigation_flash_notice{
       background-color: #112233;
       }
 
+
+
 #slogan{
 	font-size: 110%;
 	padding: 0px 0px 0px 20px;
+  font-weight: bold;
+  background-color: white;
+  z-index: 2;
+  margin-bottom: 10px;
+  color: tan;
 }
 
 .search_bar{
@@ -163,6 +181,13 @@ navigation_flash_notice{
 }
 
 
+#search_pane{
+  position: absolute;
+  top: 90px;
+  left: 35px;
+  display:inline;
+  z-index: 3;
+}
 
 #search_icon{
       position: relative;
@@ -173,14 +198,12 @@ navigation_flash_notice{
       border-radius: 10px;
       text-align: center;
       cursor:pointer;
-      left: 20px;
 }
 
 
 
 #search_bar_area{
       position: relative;
-      left: 20px;
       border: 2px solid tan;
       width: 200px;
       height: auto;
@@ -297,5 +320,4 @@ navigation_flash_notice{
 .no_text_decoration{
   text-decoration: none;
 }
-
 
