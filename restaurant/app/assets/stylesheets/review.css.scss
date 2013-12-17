@@ -212,7 +212,11 @@ navigation_flash_notice{
       margin-bottom: 2px;
       max-height: 250px;
       z-index: 1;
+      opacity: 0.25;
       
+}
+#news:hover{
+  opacity: 1;
 }
 
 #news_pull_tab{
@@ -225,8 +229,12 @@ navigation_flash_notice{
       max-height:250px;
       cursor:pointer;
       border-radius:10px 0px 0px 10px;
-
+      opacity: 1;
       
+}
+
+#news_pull_tab:hover{
+  opacity: 1;
 }
 
 #news_pull_tab_text{
