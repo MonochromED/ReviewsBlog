@@ -12,8 +12,6 @@
     	<a href = "/" id = "headerBannerLink"> <h1 id="headerBanner">Ed's Restaurant Reviews</h1>
     		<div id="slogan">In Search of Delicious Food</div> 
     	</a>
-
-    
     </div>
 
 	<div id='search_pane'>
@@ -80,17 +78,23 @@
 			</div>
 		</div>
 	</div>
-	<div id="footer">
+
+	<div id="pagination_panel">
 		<% if @reviews != nil %>
 			<%= will_paginate @search_results, :previous_label => '&#8592; Prev 5', :next_label => 'Next 5 &#8594;' %>
 		<% end %>
- 		<a href="mailto:myuser@myhost.com"><font size="1">Contact Us</font></a>
- 		<font size="1"> | &copy;2013 Edmund Wong </font>
 	</div>
 
-	<% tempVar = "/assets/banner.jpg" %>
-	<% tempVarText = "NoImageFound" %>
-<%= image_tag "#{tempVar}", alt: "#{tempVarText}" %>
+	<div id="footer" >
+ 		<a href="mailto:myuser@myhost.com" class="footer_text">Contact Us</a>
+ 		<font size="1" class="footer_text"> | &copy;2013 Edmund Wong </font>
+ 		<br />
+ 		<% tempVar = "/assets/banner.jpg" %>
+		<% tempVarText = "NoImageFound" %>
+		<%= image_tag "#{tempVar}", alt: "#{tempVarText}" %>
+	</div>
+
+
 
 	
 </body>

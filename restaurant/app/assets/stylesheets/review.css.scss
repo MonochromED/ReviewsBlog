@@ -153,15 +153,38 @@ navigation_flash_notice{
 
       }
 
-#footer {
+#pagination_panel{
       float: bottom;
       width: 99%;
       text-align: center;
       padding: 7px;
       border-bottom: 1px;
       border-top: 1px;
-      background-color: #112233;
-      }
+      background-color: #112233; 
+}
+#footer {
+      position: relative;
+      bottom: -10px;
+      left: -7px;
+      width: calc(100% + 1px);
+      width: -moz-calc(100% + 1px);
+      width: -webkit-calc(100% + 1px);
+      width: -o-calc(100% + 1px);
+      width: -ms-calc(100% + 1px);
+
+      text-align: center;
+      padding: 7px;
+      border-bottom: 1px;
+      border-top: 1px;
+      background-color: white;
+}
+
+.footer_text {
+  background-color: white;
+  color: #112233;
+  text-decoration: none;
+  font-size: x-small;
+}
 
 
 
