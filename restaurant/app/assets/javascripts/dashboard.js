@@ -27,6 +27,11 @@ $(document).ready(function(){
 		$(this).animate({color: "#666666" , backgroundColor: "#112233"},400);
 	});
 
-
-
+	if ($(document).height() > $(window).height() ){
+		$("#footer").css({"position":"relative"});
+	}
+	else{
+		$("#footer").css({"position":"absolute"});
+	}
+	
 });
