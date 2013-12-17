@@ -1,4 +1,6 @@
 Restaurant::Application.routes.draw do
+  root 'reviews#index'
+
   get "avatars/index"
   resources :avatars do
     collection do
