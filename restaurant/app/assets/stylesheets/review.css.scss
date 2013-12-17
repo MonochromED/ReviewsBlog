@@ -81,10 +81,13 @@ h4{
       }
 
 #navigation {
-      //float: top;
-      position: absolute;
-      width: 20%;
-      min-height: 255px;
+      float: top;
+      //position: absolute;
+      width: calc(100% - 80px);
+      width: -webkit-calc(100% - 80px);
+      width: -o-calc(100% - 80px);
+      width: -ms-calc(100% - 80px);
+      height: 35px;
       padding: 12px;
       border-bottom: 1px solid gray;
       border-top: 1px solid gray;
@@ -93,9 +96,37 @@ h4{
       background-color: #112233;
       margin-bottom: 2px;
       z-index: 1;
-      //display: none;
-      
-      }
+}
+
+
+
+.navigation_element {
+      display: inline-block;
+      height: 20px;
+      vertical-align: text-center;
+      background-color: #112233;
+      padding-top: 5px;
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-bottom: 2px;
+      transform:skewX(-20deg);
+      -webkit-transform:skewX(-20deg);
+      -ms-transform:skewX(-20deg);
+      -o-transform:skewX(-20deg);
+      text-decoration: none;
+      border-radius: 25px 0px 25px 0px;
+}
+
+.navigation_element:hover{
+  background-color: tan;
+}
+
+navigation_flash_notice{
+  color: orange;
+}
+
+
+
 #main {
       float:bottom;
       //position: absolute;
@@ -128,29 +159,36 @@ h4{
 
 .search_bar{
       border-radius:5px;
+      display: inline-block;
 }
 
 
 
 #search_icon{
-      width: 95%;
+      position: relative;
+      width: 200px;
       height: 20px;
       background-color: tan;
       color: black;
       border-radius: 10px;
       text-align: center;
       cursor:pointer;
+      left: 20px;
 }
 
 
 
 #search_bar_area{
+      position: relative;
+      left: 20px;
       border: 2px solid tan;
-      width: 95%;
+      width: 200px;
       height: auto;
       display: none;
       border-radius: 5px;
-      float:auto;
+      
+
+
 
 }
 
@@ -198,6 +236,7 @@ h4{
   transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   -webkit-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
   background-color: white;
 }
 
@@ -246,3 +285,9 @@ h4{
     border-radius: 10px;
     
 }
+
+.no_text_decoration{
+  text-decoration: none;
+}
+
+
