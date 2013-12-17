@@ -41,13 +41,13 @@
 		    		<strong><%= link_to 'User Profile', userprofile_users_path , { :action => :userprofile, :class => "navigation_element"}  %> </strong>
 		    		<strong><%= link_to 'Logout', { :action => :logout}, :class => "navigation_element"  %></strong>
 		    	<%elsif user === nil%>
-		    		<strong><%= link_to 'Login to post', login_users_path, :class => "navigation_element"  %></strong>
+		    		<strong><%= link_to 'Login to Post', login_users_path, :class => "navigation_element"  %></strong>
 		    	<%else%>
 		    	<%end%>
 
 
-	    		<strong><%= link_to 'Register for free login', register_users_path, :class => "navigation_element"  %></strong>
-	    		<strong><%= link_to 'Post a new review', new_review_path, :class => "navigation_element"  %></strong>
+	    		<strong><%= link_to 'Sign Up', register_users_path, :class => "navigation_element"  %></strong>
+	    		<strong><%= link_to 'Post a New Review', new_review_path, :class => "navigation_element"  %></strong>
 	    		<navigation_flash_notice><%= flash[:notice] %></navigation_flash_notice>
 			</div>
 		</div>

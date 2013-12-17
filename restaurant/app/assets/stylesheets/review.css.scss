@@ -127,9 +127,6 @@ h4{
       border-radius: 25px 0px 25px 0px;
 }
 
-.navigation_element:hover{
-  background-color: tan;
-}
 
 navigation_flash_notice{
   color: orange;
@@ -344,3 +341,23 @@ navigation_flash_notice{
   text-decoration: none;
 }
 
+
+
+
+
+
+
+a {
+  color: #666666;
+  &:visited {
+    color: #666666;
+  }
+  &:hover {
+    color: #ffffff;
+    background-color: #112233;
+  }
+}
+
+a.navigation_element{
+  color: #666666;
+}

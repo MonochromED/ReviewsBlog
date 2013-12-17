@@ -12,5 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require jquery.color-2.1.2.min
 //= require_tree .

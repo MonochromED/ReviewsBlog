@@ -20,16 +20,6 @@ pre {
 
 }
 
-a {
-  color: #666666;
-  &:visited {
-    color: #666666;
-  }
-  &:hover {
-    color: #ffffff;
-    background-color: #112233;
-  }
-}
 
 div {
   &.field, &.actions {

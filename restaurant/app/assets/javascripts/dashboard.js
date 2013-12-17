@@ -19,6 +19,14 @@ $(document).ready(function(){
       $('#news_content, #news_minimize').animate({width:'100%', height:"100%"}, 500 ).hide(500);
 	});
 
+	$('.navigation_element').mouseenter(function(){
+		$(this).animate({color: "white" , backgroundColor: "#d2b48c"},800);
+	});
+
+	$('.navigation_element').mouseleave(function(){
+		$(this).animate({color: "#666666" , backgroundColor: "#112233"},400);
+	});
+
 
 
 });
