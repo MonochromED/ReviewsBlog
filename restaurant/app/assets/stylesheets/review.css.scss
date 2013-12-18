@@ -166,11 +166,11 @@ navigation_flash_notice{
       position: relative;
       bottom: 0px;
       //left: -7px;
-      width: calc(100% + 1px);
-      width: -moz-calc(100% + 1px);
-      width: -webkit-calc(100% + 1px);
-      width: -o-calc(100% + 1px);
-      width: -ms-calc(100% + 1px);
+      width: calc(100%);
+      width: -moz-calc(100%);
+      width: -webkit-calc(100%);
+      width: -o-calc(100%);
+      width: -ms-calc(100%);
 
       text-align: center;
       padding: 7px;

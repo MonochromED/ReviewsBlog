@@ -30,31 +30,45 @@ $(document).ready(function(){
 	});
 
 
-	//ensure at initialization that header and footer are in correct positions
+	//ensure at initialization that header and footer are in correct vertical positions
 	if ($(document).height() > $(window).height() ){
 		$("#footer").css({"position":"relative"});
+
 	}
+	//when we have less document than window area
 	else{
 		$("#footer").css({"position":"fixed"});
-		$("#header").css({"position":"absolute"});
+
 	}
 
+	//ensures at initialization that header and footer are correct width
+	var dashboardMain_Width = $("#dashboardMain").width();
 
+	$("#footer").css({"width": dashboardMain_Width + "px"});	
+	$("#header").css({"width": dashboardMain_Width + 15 + "px"});		
+
+	var minDashboardMainHeight = $(document).height() - $("#footer").height();
+	$("#dashboardMain").css({"min-height": minDashboardMainHeight + "px"});
 
 
 
 	
 });
 
-//ensure upon resize that header and footer are in correct positions
+//Ensures correct header and footer dimensions on browser window resize
 $(window).resize(function(){
+	//ensure upon resize that header and footer are in correct vertical positions
 	if ($(document).height() > $(window).height() ){
 		$("#footer").css({"position":"relative"});
 	}
+	//when we have less document than window area
 	else{
 		$("#footer").css({"position":"fixed"});
-		$("#header").css({"position":"absolute"});
 	}
 
 
+	//ensures on resize that header and footer are correct width
+	var dashboardMain_Width = $("#dashboardMain").width();
+	$("#footer").css({"width": dashboardMain_Width + "px"});	
+	$("#header").css({"width": dashboardMain_Width + 15 + "px"});
 });
