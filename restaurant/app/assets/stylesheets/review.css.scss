@@ -32,12 +32,10 @@ h1{
   top: 0px;
   background-color: white;
   width: 100%;
-
 }
 
 #headerBanner{
 	background: #ffffff url(/assets/images/banner.jpg) no-repeat top right;
-    //box-shadow: 0px 0px 2px 2px #ffd08c;
 	box-shadow: inset 0px 0px 2px 2px rgba(255,255,255,0.9);
 	margin: 10px;
   margin-bottom: 0px;
@@ -89,7 +87,6 @@ h4{
       margin-top: 100px;
       margin-bottom: 2px;
       float: top;
-      //position: absolute;
       width: calc(100% - 80px);
       width: -webkit-calc(100% - 80px);
       width: -o-calc(100% - 80px);
@@ -137,7 +134,6 @@ navigation_flash_notice{
 
 #main {
       float:bottom;
-      //position: absolute;
       width: 800px;
       padding: 7px;
       border-left: 1px solid gray;
@@ -148,8 +144,7 @@ navigation_flash_notice{
       margin-left: auto;
       margin-right: auto;
       min-height:100%;
-      height: auto !important; // the magic!
-      height:100%;
+      background-color: #112233;
       }
 
 #pagination_panel{
@@ -162,10 +157,8 @@ navigation_flash_notice{
       background-color: #112233; 
 }
 #footer {
-      //float: bottom;
       position: relative;
       bottom: 0px;
-      //left: -7px;
       width: calc(100%);
       width: -moz-calc(100%);
       width: -webkit-calc(100%);
@@ -249,13 +242,8 @@ navigation_flash_notice{
       position: fixed;
       right: 0px;
       top: 100px;
-      //float: right;
       width: 50px;
       padding: 0px;
-      //border-bottom: 1px solid gray;
-      //border-top: 1px solid gray;
-      //border-left: 1px solid gray;
-      //border-right: 1px solid gray;
       background-color: #112233;
       margin-bottom: 2px;
       max-height: 250px;
@@ -329,7 +317,6 @@ navigation_flash_notice{
     border: 5px solid white;
     color: #717171;
     font-size: 8px;
-    //height: 10px;
     letter-spacing: 1px;
     line-height: 10px;
     position: relative;
