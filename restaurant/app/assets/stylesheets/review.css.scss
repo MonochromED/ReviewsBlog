@@ -177,7 +177,7 @@ navigation_flash_notice{
 
 .footer_text {
   background-color: white;
-  color: transparent;
+  color: #112233;
   text-decoration: none;
   font-size: x-small;
 }
@@ -228,6 +228,7 @@ navigation_flash_notice{
       height: auto;
       display: none;
       border-radius: 5px;
+      background-color: #112233;
       
 
 
@@ -304,7 +305,7 @@ navigation_flash_notice{
 
 .button:hover .infobox{
   display:block;
-  color:transparent;
+  color: #112233;
   border-color: none;
 }
 
