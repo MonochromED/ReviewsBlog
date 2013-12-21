@@ -35,7 +35,7 @@ h1{
 }
 
 #headerBanner{
-	background: #ffffff url(/assets/images/banner.jpg) no-repeat top right;
+	background: #ffffff url(/assets/images/banner.jpg) no-repeat right;
 	box-shadow: inset 0px 0px 2px 2px rgba(255,255,255,0.9);
 	margin: 10px;
   margin-bottom: 0px;
@@ -47,6 +47,7 @@ h1{
 	font-family: Verdana,Arial,sans-serif;
 	font-size: 160%;
 	color: tan;
+
 
 }
 
@@ -336,7 +337,9 @@ navigation_flash_notice{
   text-decoration: none;
 }
 
-
+#contact_us_link:hover{
+  color:tan;
+}
 
 
 
