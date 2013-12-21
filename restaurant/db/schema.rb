@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131111123619) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "avatars", force: true do |t|
     t.string   "avatar_user_id"
     t.string   "avatar_file_name"
