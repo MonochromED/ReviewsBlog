@@ -35,7 +35,7 @@
    <%@review_id_value = @review.id %>
    <!--Validate that current logged user has ownership of this post -->
      <% if controller.belongsToCurrentUser("#{comment.poster}") || controller.getAccessRank <= 1 %>
-       <%= link_to 'Edit', action: :editcomment, :commentid => @comment_id_value, :reviewid => @review_id_value %> |
+       <%= link_to 'Edit', edit_comment_path(comment) %> |
        <%= link_to 'Delete Comment', action: :deletecomment, :commentid => @comment_id_value, :reviewid => @review_id_value  %><br />
      <% end %>
    <% end %>

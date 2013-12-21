@@ -49,7 +49,7 @@ class CommentsController < ApplicationController
 	        flash[:notice] = 'You do not have permission to edit this comment'
 
 	      end
-	    end	
+	    end
 	end
 
 	def destroy
@@ -75,6 +75,6 @@ class CommentsController < ApplicationController
 
 
 	  def comment_params
-	    params.require(:comment).permit(:comment, :poster, :date)
+	    params.require(:comment).permit(:review_id, :comment, :poster, :date)
 	  end
 end

@@ -94,10 +94,15 @@ class ReviewsController < ApplicationController
         redirect_to :action => "show", :id => params[:id]
   end
 
+
+#Moved into Comments Controller.  Depreciated.  
+=begin
+
   def editcomment
 
       
   end
+
 
   def updatecomment
 
@@ -125,7 +130,7 @@ class ReviewsController < ApplicationController
     end
     redirect_to :action => "show", :id => params[:reviewid]
   end
-
+=end
 
 
   def search
