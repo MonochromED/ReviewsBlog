@@ -45,9 +45,16 @@
 		    	<%else%>
 		    	<%end%>
 
+		    	<% user_access_rank = controller.getAccessRank %>
+		    	<% if user_access_rank <= 1 %>
+		    		<strong><%= link_to 'Post News', userprofile_users_path ,{ :action => :userprofile, :class =>"navigation_element"} %>
+		    	<% end %>
+
 
 	    		<strong><%= link_to 'Sign Up', register_users_path, :class => "navigation_element"  %></strong>
 	    		<strong><%= link_to 'Post a New Review', new_review_path, :class => "navigation_element"  %></strong>
+
+
 	    		<navigation_flash_notice><%= flash[:notice] %></navigation_flash_notice>
 			</div>
 		</div>

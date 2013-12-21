@@ -4,68 +4,33 @@ Restaurant::Application.routes.draw do
   get "avatars/index"
   resources :avatars do
     collection do
-      get 'login'
-      get 'register'
       get 'logout'
-      get 'userprofile'
-      post 'newuser'
-      post 'validate'
-      post 'search'
-      post 'comment'
-      get 'editcomment'
-      get 'deletecomment'
-      post 'updatecomment'
-      post 'updateProfileInfo'
     end
   end
 
   get "comments/index"
   resources :comments do
     collection do
-      get 'login'
-      get 'register'
       get 'logout'
-      get 'userprofile'
-      post 'newuser'
-      post 'validate'
-      post 'search'
     end
   end
+
   get "restaurant/index"
   resources :restaurant do
     collection do
-      get 'login'
-      get 'register'
       get 'logout'
-      get 'userprofile'
-      post 'newuser'
-      post 'validate'
-      get 'search'
-      post 'comment'
-      get 'editcomment'
-      
-      get 'deletecomment'
-      post 'updatecomment'
-
     end
   end
+
   get "reviews/index"
   resources :reviews do
     collection do
-      get 'login'
-      get 'register'
       get 'logout'
-      get 'userprofile'
-      post 'newuser'
-      post 'validate'
       get 'search'
       post 'comment'
       get 'editcomment'
-      
       get 'deletecomment'
       post 'updatecomment'
-
-
     end
   end
 
@@ -78,13 +43,18 @@ Restaurant::Application.routes.draw do
       get 'userprofile'
       post 'newuser'
       post 'validate'
-      get 'search'
       post 'updateProfileInfo'
 
 
     end
   end
 
+  get "news/index"
+  resources :news do
+    collection do
+    
+    end
+  end
 
   
 
