@@ -52,7 +52,7 @@ Restaurant::Application.routes.draw do
   get "news/index"
   resources :news do
     collection do
-    
+      get 'logout'
     end
   end
 
