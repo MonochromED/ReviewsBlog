@@ -1,6 +1,13 @@
 Restaurant::Application.routes.draw do
   root 'reviews#index'
 
+  get "news_posts/index"
+  resources :news do
+    collection do
+      get 'logout'
+    end
+  end
+
   get "avatars/index"
   resources :avatars do
     collection do
@@ -49,12 +56,7 @@ Restaurant::Application.routes.draw do
     end
   end
 
-  get "news/index"
-  resources :news do
-    collection do
-      get 'logout'
-    end
-  end
+
 
   
 
