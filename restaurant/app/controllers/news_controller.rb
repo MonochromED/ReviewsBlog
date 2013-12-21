@@ -4,8 +4,8 @@ class NewsController < ApplicationController
   # GET /news.json
   require 'will_paginate/array' #used for combining 2 SQL request objects and paginating it properly
   def index
-    #@news = News.order('id desc').limit(5)
-    @news = News.paginate(:page => params[:page], :per_page => 5).order('id desc')
+    #@news_posts = News.order('id desc').limit(5)
+    @news_posts = News.paginate(:page => params[:page], :per_page => 5).order('id desc')
     
 
   end
@@ -17,14 +17,14 @@ class NewsController < ApplicationController
 
   # GET /news/new
   def new
-    if (session[:user_id])
+    if ( getAccessRank() <= 1  )
       @news = News.new
       respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @news }
       end
     else
-      flash[:notice] = "Please log on to post"
+      flash[:notice] = "Insufficient privileges"
       redirect_to '/news'
     end
   end
@@ -42,7 +42,7 @@ class NewsController < ApplicationController
     respond_to do |format|
       if @news.save
         format.html { redirect_to @news, notice: 'news was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @news }
+        format.json { render action: 'show', status: :created, location: @news}
       else
         format.html { render action: 'new' }
         format.json { render json: @news.errors, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class NewsController < ApplicationController
   # PATCH/PUT /news/1
   # PATCH/PUT /news/1.json
   def update
-    if (belongsToCurrentUser("#{@news.poster}") || getAccessRank() <= 1  )
+    if ( getAccessRank() <= 1  )
       respond_to do |format|
         if @news.update(news_params)
           format.html { redirect_to @news, notice: 'news was successfully updated.' }
@@ -73,7 +73,7 @@ class NewsController < ApplicationController
   # DELETE /news/1
   # DELETE /news/1.json
   def destroy
-    if (belongsToCurrentUser("#{@news.poster}") || getAccessRank() <= 1  )
+    if ( getAccessRank() <= 1  )
       @news.destroy
       respond_to do |format|
         format.html { redirect_to newss_url }
@@ -87,4 +87,17 @@ class NewsController < ApplicationController
       end
     end
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    #used when selecting a particular news element to be displayed, edited, or deleted.
+    def set_news
+      @news = News.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def news_params
+      params.require(:news).permit(:title, :date, :article)
+    end
+
 end

@@ -250,6 +250,7 @@ class ReviewsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    # Used when selecting a particular review to be displayed, edited, or deleted.
     def set_review
       @review = Review.find(params[:id])
     end
