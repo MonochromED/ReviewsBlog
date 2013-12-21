@@ -142,8 +142,8 @@ class ReviewsController < ApplicationController
     #@reviews = Review.paginate(:page => params[:page], :per_page => 5).
     #where("title LIKE ? OR article LIKE ? OR poster LIKE ?", pattern, pattern, pattern)
 
-    @reviews = Review.where("title LIKE ? OR article LIKE ? OR poster LIKE ?", pattern, pattern, pattern).order("id desc")
-    @comments = Comment.where("comment LIKE ? OR poster LIKE ?", pattern, pattern).order("id desc")
+    @reviews = Review.where("title ILIKE ? OR article ILIKE ? OR poster ILIKE ?", pattern, pattern, pattern).order("id desc")
+    @comments = Comment.where("comment ILIKE ? OR poster ILIKE ?", pattern, pattern).order("id desc")
 
     @search_results = @reviews + @comments
     
