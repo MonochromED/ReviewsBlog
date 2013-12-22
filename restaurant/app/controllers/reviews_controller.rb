@@ -118,7 +118,7 @@ class ReviewsController < ApplicationController
 
   end
 
-
+=end
   def deletecomment
   
     if commentToDelete = Comment.find(params[:commentid])
@@ -130,7 +130,7 @@ class ReviewsController < ApplicationController
     end
     redirect_to :action => "show", :id => params[:reviewid]
   end
-=end
+
 
 
   def search
