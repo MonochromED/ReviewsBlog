@@ -360,12 +360,47 @@ a.navigation_element{
   color: #666666;
 }
 
-.rotateThis{
-  transform: rotateY(0deg);
-  transition: transform 5s;
+
+
+//---flip card related classes and ids
+.f1_container {
+  position: relative;
+  margin: 10px auto;
+  width: 600px;
+  height: 90px;
+  z-index: 1;
+}
+.f1_container {
+  perspective: 1000;
 
 }
-.rotateThisAgain{
+.f1_card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: all 1.0s linear;
+}
+.f1_container:hover .f1_card {
   transform: rotateY(180deg);
-  transition: transform 5s;
+  -webkit-transform: rotateY(180deg);
+  box-shadow: -5px 5px 5px #aaa;
+}
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.face.back {
+  display: block;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  box-sizing: border-box;
+  padding: 0px;
+  color: white;
+  text-align: center;
+  background-color: #aaa;
 }

@@ -53,11 +53,8 @@ $(document).ready(function(){
 	$("#dashboardMain").css({"min-height": minDashboardMainHeight + "px"});
 
 
-	//Rotation Elements
-	$(".rotationTransition").mouseenter(function(){
-		$(this).toggleClass("rotateThisAgain");
-		$(this).toggleClass("rotateThis");
-	});
+
+
 
 
 

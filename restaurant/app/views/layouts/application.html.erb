@@ -97,8 +97,23 @@
  		<font size="1" class="footer_text"> | &copy;2013 Edmund Wong </font>
  		<br />
  		<% footer_image = "/assets/images/banner.jpg" %>
+ 		<% footer_image2 = "/assets/images/banner2.jpg" %>
 		<% footer_image_text = "NoImageFound" %>
-		<%= image_tag "#{footer_image}", alt: "#{footer_image_text}", class:"rotationTransition rotateThis" %>
+
+
+
+		<div class="f1_container">
+			<div class="f1_card" class="shadow">
+			  <div class="front face">
+			    	<%=image_tag "#{footer_image}"%>
+			  </div>
+
+			  <div class="back face center">
+			    	<%=image_tag "#{footer_image2}"%>
+			  </div>
+			</div>
+		</div>
+
 	</div>
 
 
