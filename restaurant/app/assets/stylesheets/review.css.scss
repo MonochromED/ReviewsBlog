@@ -359,3 +359,13 @@ a {
 a.navigation_element{
   color: #666666;
 }
+
+.rotateThis{
+  transform: rotateY(0deg);
+  transition: transform 5s;
+
+}
+.rotateThisAgain{
+  transform: rotateY(180deg);
+  transition: transform 5s;
+}

@@ -53,6 +53,13 @@ $(document).ready(function(){
 	$("#dashboardMain").css({"min-height": minDashboardMainHeight + "px"});
 
 
+	//Rotation Elements
+	$(".rotationTransition").mouseenter(function(){
+		$(this).toggleClass("rotateThisAgain");
+		$(this).toggleClass("rotateThis");
+	});
+
+
 
 	
 });
@@ -80,3 +87,4 @@ $(window).resize(function(){
 	$("#footer").css({"width": dashboardMain_Width + "px"});	
 	$("#header").css({"width": dashboardMain_Width + 15 + "px"});
 });
+

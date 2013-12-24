@@ -31,7 +31,7 @@
     <div id="content">
     	<div id="navigation">
 			
-			<div id="navigation_elements_panel">
+			<div id="navigation_elements_panel" class=".rotateThis">
 
 				<% user = controller.getUser %>
 		    	
@@ -98,7 +98,7 @@
  		<br />
  		<% footer_image = "/assets/images/banner.jpg" %>
 		<% footer_image_text = "NoImageFound" %>
-		<%= image_tag "#{footer_image}", alt: "#{footer_image_text}" %>
+		<%= image_tag "#{footer_image}", alt: "#{footer_image_text}", class:"rotationTransition rotateThis" %>
 	</div>
 
 

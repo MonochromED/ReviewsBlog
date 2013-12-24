@@ -117,8 +117,8 @@ class ReviewsController < ApplicationController
     redirect_to review_path "#{params[:reviewid]}"
 
   end
-
 =end
+
   def deletecomment
   
     if commentToDelete = Comment.find(params[:commentid])

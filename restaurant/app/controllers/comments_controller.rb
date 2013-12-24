@@ -68,6 +68,22 @@ class CommentsController < ApplicationController
 	    end
 	end
 
+	def destroy(commentToDelete)
+	    if (belongsToCurrentUser("#{commentToDelete.poster}") || getAccessRank <= 1  )
+	      commentToDelete.destroy
+	      respond_to do |format|
+	        format.html { redirect_to comments_url }
+	        format.json { head :no_content }
+	      end
+	    else
+	      respond_to do |format|
+	      format.html { redirect_to commentss_url }
+	      format.json { head :no_content }
+	      flash[:notice] = 'You do not have permission to delete this comment'
+	      end
+	    end
+	end	
+
 	private
 	  def set_comment
 		@comment = Comment.find(params[:id])
