@@ -37,7 +37,7 @@ $(document).ready(function(){
 	}
 	//when we have less document than window area
 	else{
-		$("#footer").css({"position":"fixed"});
+		$("#footer").css({"position":"absolute"});
 
 	}
 
@@ -75,7 +75,7 @@ $(window).resize(function(){
 	}
 	//when we have less document than window area
 	else{
-		$("#footer").css({"position":"fixed","bottom":"0px"});
+		$("#footer").css({"position":"absolute"});
 	}
 
 
@@ -83,5 +83,6 @@ $(window).resize(function(){
 	var dashboardMain_Width = $("#dashboardMain").width();
 	$("#footer").css({"width": dashboardMain_Width + "px"});	
 	$("#header").css({"width": dashboardMain_Width + 15 + "px"});
+
 });
 

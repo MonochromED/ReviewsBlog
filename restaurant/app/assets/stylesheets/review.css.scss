@@ -10,7 +10,7 @@ h1{
 	
 
 }
-	
+
 #mainWindowHeader{
 	font-size:110%;
 	background-color: transparent;
@@ -37,9 +37,9 @@ h1{
 #headerBanner{
 	background: #ffffff url(/assets/images/banner.jpg) no-repeat right;
 	box-shadow: inset 0px 0px 2px 2px rgba(255,255,255,0.9);
-	margin: 10px;
+	//margin: 10px;
   margin-bottom: 0px;
-	padding: 10px;
+	//padding: 10px;
 	border-radius: 5px;
 	border-style: solid;
 	border-color: white;
@@ -81,6 +81,7 @@ h4{
  margin: 0px;
  padding: 0px;
 }
+
 
 
 #navigation {
@@ -158,6 +159,8 @@ navigation_flash_notice{
       border-top: 1px;
       background-color: transparent; 
 }
+
+
 #footer {
       position: relative;
       bottom: 0px;
@@ -168,12 +171,9 @@ navigation_flash_notice{
       width: -ms-calc(100%);
 
       text-align: center;
-      padding: 7px;
-      border-bottom: 1px;
-      border-top: 1px;
       background-color: white;
-      margin-left: -7px;
-      margin-bottom: -10px;
+
+
 }
 
 .footer_text {
@@ -404,3 +404,4 @@ a.navigation_element{
   text-align: center;
   background-color: #aaa;
 }
+
