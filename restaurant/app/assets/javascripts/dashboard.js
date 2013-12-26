@@ -30,6 +30,7 @@ $(document).ready(function(){
 	});
 
 
+
 	//ensure at initialization that header and footer are in correct vertical positions
 	if ($(document).height() > $(window).height() ){
 		$("#footer").css({"position":"relative"});
@@ -45,7 +46,7 @@ $(document).ready(function(){
 	var dashboardMain_Width = $("#dashboardMain").width();
 
 	$("#footer").css({"width": dashboardMain_Width + "px"});	
-	$("#header").css({"width": dashboardMain_Width + 15 + "px"});		
+	$("#header").css({"width": dashboardMain_Width + "px"});		
 
 	//Ensures that footer gets stuck to the bottom by readjusting its position relative to rest of document
 	//when document is first loaded.
@@ -82,7 +83,7 @@ $(window).resize(function(){
 	//ensures on resize that header and footer are correct width
 	var dashboardMain_Width = $("#dashboardMain").width();
 	$("#footer").css({"width": dashboardMain_Width + "px"});	
-	$("#header").css({"width": dashboardMain_Width + 15 + "px"});
+	$("#header").css({"width": dashboardMain_Width + "px"});
 
 });
 
