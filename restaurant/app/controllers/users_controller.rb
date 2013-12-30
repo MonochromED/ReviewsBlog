@@ -69,16 +69,24 @@ class UsersController < ApplicationController
       user = User.new
       user.userid = params[:userid]
       user.password = params[:password]
+      user.password_confirmation = params[:password_confirmation]
+      user.password_hash = params[:password_hash]
+      user.password_salt = params[:password_salt]
       user.fullname = params[:fullname]
       user.email = params[:email]
       user.access_rank = 3
       if user.save
         session[:user_id] = user.userid
         flash[:notice] = 'New User ID was successfully created.'
+        format.html {redirect_to '/reviews' }
+      elsif user.password != user.password_confirmation
+        flash[:notice] = 'Sorry, your password and password confirmation does not match.'
+        format.html {redirect_to '/users/register' }            
       else
-        flash[:notice] = 'Sorry, User ID already exists.' 
+        flash[:notice] = 'Sorry, User ID already exists.'
+        format.html {redirect_to '/users/register' } 
       end
-      format.html {redirect_to '/reviews' }   
+
 
     end
   end
@@ -96,7 +104,8 @@ class UsersController < ApplicationController
     end
 
         redirect_to userprofile_users_path
-  end  
+  end
+
 
 
   private
@@ -107,7 +116,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:userid, :password, :fullname, :email)
+      params.require(:user).permit(:userid, :password, :password_confirmation, :fullname, :email)
     end
 
 end

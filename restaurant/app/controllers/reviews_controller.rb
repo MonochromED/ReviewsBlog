@@ -170,7 +170,8 @@ class ReviewsController < ApplicationController
 
     end
   end
-
+#depreciated login validation/logout.  Moved to application controller level  
+=begin
   def validate
   
     respond_to do |format|
@@ -188,7 +189,7 @@ class ReviewsController < ApplicationController
       end
     end  
   end
-
+=end
 #migrated to application_controller
 =begin
   def logout
