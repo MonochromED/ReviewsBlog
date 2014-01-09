@@ -52,3 +52,6 @@ gem "will_paginate"
 
 #Paperclip gem for uploading images
 gem "paperclip"
+
+#Thin web server to provide SSL localhost webserver
+gem "thin"
