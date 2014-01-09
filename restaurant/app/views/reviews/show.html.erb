@@ -18,7 +18,8 @@
   <%= @review.article %>
 </p>
 <% if controller.belongsToCurrentUser("#{@review.poster}") || controller.getAccessRank <= 1  %>
-  <%= link_to 'Edit', edit_review_path(@review) %>|
+  <%= link_to 'Edit', edit_review_path(@review) %> |
+  <%= link_to 'Delete', @review, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% end %>
 <%= link_to 'Back', reviews_path %>
 
