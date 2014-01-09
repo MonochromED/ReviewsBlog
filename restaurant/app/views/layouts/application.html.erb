@@ -48,8 +48,7 @@
 		    	<%else%>
 		    	<%end%>
 
-		    	<% user_access_rank = controller.getAccessRank %>
-		    	<% if user_access_rank <= 1 %>
+				<% if controller.allowAccessIfUserRankAtLeast(1) %>
 		    		<strong><%= link_to 'Post News', new_news_path ,{ :class =>"navigation_element"} %></strong>
 		    	<% end %>
 

@@ -22,7 +22,7 @@
         <tr>
           
           <td><%= link_to 'Show', newspost %>
-            <% if controller.getAccessRank <= 1 %>
+            <% if controller.allowAccessIfUserRankAtLeast(1) %>
               <%= link_to 'Edit', edit_news_path(newspost) %>
               <%= link_to 'Delete', newspost, method: :delete, data: { confirm: 'Are you sure?' } %>
             <% else %>
@@ -36,7 +36,7 @@
 
 <br />
 <br />
-<% if controller.getAccessRank <= 1 %>
+<% if controller.allowAccessIfUserRankAtLeast(1) %>
   <%= link_to 'New newspost', new_news_path %>
   <% end %>
 

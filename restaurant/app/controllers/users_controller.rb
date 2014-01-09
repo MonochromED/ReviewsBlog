@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   def destroy
     #Clear out current user session login before delete
     user_to_be_deleted = @user.userid
-    if @user.userid === session[:user_id]
+    if belongsToCurrentUser(user_to_be_deleted)
       session[:user_id] = nil
     end
     @user.destroy

@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
 	end
 
 	def update
-	    if (belongsToCurrentUser("#{@comment.poster}") || getAccessRank <= 1  )
+		if allowAccessIfOwnerNameIsOrRankAtLeast( "#{@comment.poster}" , 1 )
 	      respond_to do |format|
 	        if @comment.update(comment_params)
 	          format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
@@ -49,39 +49,39 @@ class CommentsController < ApplicationController
 	        flash[:notice] = 'You do not have permission to edit this comment'
 
 	      end
-	    end
+		end
 	end
 
 	def destroy
-	    if (belongsToCurrentUser("#{@comment.poster}") || getAccessRank <= 1  )
-	      @comment.destroy
-	      respond_to do |format|
-	        format.html { redirect_to comments_url }
-	        format.json { head :no_content }
-	      end
-	    else
-	      respond_to do |format|
-	      format.html { redirect_to commentss_url }
-	      format.json { head :no_content }
-	      flash[:notice] = 'You do not have permission to delete this comment'
-	      end
-	    end
+    if allowAccessIfOwnerNameIsOrRankAtLeast( "#{@comment.poster}" , 1 )
+      @comment.destroy
+      respond_to do |format|
+        format.html { redirect_to comments_url }
+        format.json { head :no_content }
+      end
+	  else
+      respond_to do |format|
+      format.html { redirect_to commentss_url }
+      format.json { head :no_content }
+      flash[:notice] = 'You do not have permission to delete this comment'
+      end
+    end
 	end
 
 	def destroy(commentToDelete)
-	    if (belongsToCurrentUser("#{commentToDelete.poster}") || getAccessRank <= 1  )
-	      commentToDelete.destroy
-	      respond_to do |format|
-	        format.html { redirect_to comments_url }
-	        format.json { head :no_content }
-	      end
-	    else
-	      respond_to do |format|
-	      format.html { redirect_to commentss_url }
-	      format.json { head :no_content }
-	      flash[:notice] = 'You do not have permission to delete this comment'
-	      end
-	    end
+    if allowAccessIfOwnerNameIsOrRankAtLeast( "#{commentToDelete.poster}" , 1 )
+      commentToDelete.destroy
+      respond_to do |format|
+        format.html { redirect_to comments_url }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+      format.html { redirect_to commentss_url }
+      format.json { head :no_content }
+      flash[:notice] = 'You do not have permission to delete this comment'
+      end
+    end
 	end	
 
 	private

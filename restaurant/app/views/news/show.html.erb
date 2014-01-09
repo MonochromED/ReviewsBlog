@@ -13,7 +13,7 @@
   <strong>Article:</strong>
   <%= @news.article %>
 </p>
-<% if controller.getAccessRank <= 1  %>
+<% if controller.allowAccessIfUserRankAtLeast(1)  %>
   <%= link_to 'Edit', edit_news_path(@news) %>|
 <% end %>
 <%= link_to 'Back', news_index_path %>

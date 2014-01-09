@@ -86,5 +86,38 @@ class ApplicationController < ActionController::Base
     end
   end
   
+
+  #Checks current user rank against argument value.  Returns boolean
+  def allowAccessIfUserRankAtLeast(access_rank_value)
+    user_rank = getAccessRank()
+    if user_rank <= access_rank_value
+      true
+    else
+      false
+    end
+  end
+
+
+  #Checks if user has sufficient rank or if user is owner. Returns boolean
+  def allowAccessIfOwnerNameIsOrRankAtLeast(entity_owner, access_rank_value)
+    if ( belongsToCurrentUser(entity_owner) || 
+      allowAccessIfUserRankAtLeast(access_rank_value) )
+      true
+    else
+      false
+    end
+
+  end
+
+  #Checks if user is registered user.
+  def userIsLoggedIn()
+    user = getUser()
+    if user != nil
+      true
+    else
+      false
+    end
+  end
+
 end
 

@@ -17,7 +17,7 @@
   <strong>Article:</strong>
   <%= @review.article %>
 </p>
-<% if controller.belongsToCurrentUser("#{@review.poster}") || controller.getAccessRank <= 1  %>
+<% if controller.allowAccessIfOwnerNameIsOrRankAtLeast("#{@review.poster}", 1) %>
   <%= link_to 'Edit', edit_review_path(@review) %> |
   <%= link_to 'Delete', @review, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% end %>
@@ -35,7 +35,7 @@
    <%@comment_id_value = comment.id %>
    <%@review_id_value = @review.id %>
    <!--Validate that current logged user has ownership of this post -->
-     <% if controller.belongsToCurrentUser("#{comment.poster}") || controller.getAccessRank <= 1 %>
+     <% if controller.allowAccessIfOwnerNameIsOrRankAtLeast("#{comment.poster}", 1) %>
        <%= link_to 'Edit', edit_comment_path(comment) %> |
        <%= link_to 'Delete Comment', action: :deletecomment, :commentid => @comment_id_value, :reviewid => @review_id_value  %><br />
      <% end %>
@@ -45,7 +45,7 @@
 <hr />
 <h2>Submit new comment:</h2>
 <%= form_tag :action => 'comment', :id => @review do%>
-<% if controller.getUser != nil %>
+<% if controller.userIsLoggedIn() %>
 <strong><!--Poster: --></strong><%= hidden_field "comment", "poster", :value => "#{controller.getUser}"  %><br /><br />
 <% else %>
 <strong>Currently Not Logged In.</strong><%= hidden_field "comment", "poster", :value => "Anonymous"  %><br /><br />

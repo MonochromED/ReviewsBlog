@@ -53,7 +53,7 @@ class ReviewsController < ApplicationController
   # PATCH/PUT /reviews/1
   # PATCH/PUT /reviews/1.json
   def update
-    if (belongsToCurrentUser("#{@review.poster}") || getAccessRank() <= 1  )
+    if (allowAccessIfOwnerNameIsOrRankAtLeast("#{@review.poster}", 1))
       respond_to do |format|
         if @review.update(review_params)
           format.html { redirect_to @review, notice: 'Review was successfully updated.' }
@@ -73,7 +73,7 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1
   # DELETE /reviews/1.json
   def destroy
-    if (belongsToCurrentUser("#{@review.poster}") || getAccessRank() <= 1  )
+    if (allowAccessIfOwnerNameIsOrRankAtLeast("#{@review.poster}", 1))
       @review.destroy
       respond_to do |format|
         format.html { redirect_to reviews_url }
@@ -122,7 +122,7 @@ class ReviewsController < ApplicationController
   def deletecomment
   
     if commentToDelete = Comment.find(params[:commentid])
-      if (belongsToCurrentUser("#{commentToDelete.poster}") || getAccessRank() <= 1  )
+      if (allowAccessIfOwnerNameIsOrRankAtLeast("#{commentToDelete.poster}", 1))
         commentToDelete.destroy
       else
         flash[:notice] = 'You do not have permission to edit this comment'

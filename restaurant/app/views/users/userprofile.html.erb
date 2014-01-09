@@ -65,7 +65,7 @@
 <% user_database_reference = userInfo %>
 <% if user_database_reference != nil %>
   <% userid = user_database_reference.userid %>
-	<% if (controller.belongsToCurrentUser("#{userid}") || getAccessRank() <= 1  ) %>
+	<% if controller.allowAccessIfOwnerNameIsOrRankAtLeast("#{userid}", 1) %>
 	<%= link_to 'Delete', user_database_reference, method: :delete, 
 	data: { confirm: 'Are you sure you want to delete your account?' },
 	user_deleted: user %> |

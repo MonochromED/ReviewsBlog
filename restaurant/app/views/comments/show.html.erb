@@ -24,8 +24,7 @@
   <%= @comment.comment %>
 </p>
 <% comment_id = @comment.id %>
-
-<% if controller.belongsToCurrentUser("#{@comment.poster}") || controller.getAccessRank <= 1  %>
+<% if controller.allowAccessIfOwnerNameIsOrRankAtLeast("#{@comment.poster}", 1 ) %>
   <%= link_to 'Edit', edit_comment_path(@comment), :commentid => "#{comment_id}"  %>|
   <%= link_to 'Delete', @comment, method: :delete, data: { confirm: 'Are you sure?'} %>
 <% end %>
