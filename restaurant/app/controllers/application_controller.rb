@@ -66,12 +66,23 @@ class ApplicationController < ActionController::Base
 
   #Returns the access rank of the current user
   def getAccessRank
+    guest_user_rank = 4
     user = getUser()
     if user != nil
-      user_rank = User.find_by userid: "#{user}"
-      user_rank.access_rank
+      current_user = User.find_by userid: "#{user}"
+      user_rank = current_user.access_rank
+
+      #Handler if user access rank missing
+      if user_rank === nil
+        flash[:notice] = "Problem getting user access level.
+        Please contact site administrator."
+        user_rank = guest_user_rank
+      end
+
+      user_rank
+
     else
-      user_rank = 4
+      user_rank = guest_user_rank
     end
   end
   
