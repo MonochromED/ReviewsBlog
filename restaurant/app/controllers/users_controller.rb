@@ -55,10 +55,17 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    #Clear out current user session login before delete
+    user_to_be_deleted = @user.userid
+    if @user.userid === session[:user_id]
+      session[:user_id] = nil
+    end
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to user_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
+      flash[:notice] = "#{user_to_be_deleted}" + 
+      "'s account has been terminated"
     end
   end
 
