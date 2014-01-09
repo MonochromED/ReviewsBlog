@@ -76,12 +76,12 @@ class NewsController < ApplicationController
     if allowAccessIfUserRankAtLeast(1)
       @news.destroy
       respond_to do |format|
-        format.html { redirect_to newss_url }
+        format.html { redirect_to news_index_url }
         format.json { head :no_content }
       end
     else
       respond_to do |format|
-      format.html { redirect_to newss_url }
+      format.html { redirect_to news_index_url }
       format.json { head :no_content }
       flash[:notice] = 'You do not have permission to delete this news'
       end
