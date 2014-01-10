@@ -2,8 +2,25 @@
 
 var news_content_height = "250px"
 var height_news_minimize_tab = "100%"
-$(document).ready(function(){
+var hilite_nav_element_text_color
+var hilite_nav_element_bg_color
 
+function determineNavColorOnMouseleave(){
+	if ($(this).hasClass("currentPageLinkHighlight")){
+		$(this).animate({
+			color: hilite_nav_element_text_color, 
+			backgroundColor: hilite_nav_element_bg_color},400);
+	}
+	else{
+		$(this).animate({color: "#666666" , backgroundColor: "transparent"},400);		
+	}
+
+}
+
+$(document).ready(function(){
+	//Saves color of highlighted navigation element from page load state first.
+	hilite_nav_element_text_color = $(".currentPageLinkHighlight").css("color");
+	hilite_nav_element_bg_color = $(".currentPageLinkHighlight").css("background-color");
 
 	//News Tab effects.
 	$('#news_pull_tab').click(function(){
@@ -21,13 +38,17 @@ $(document).ready(function(){
 
 
 	//Decorative effects on navigation bar entities
-	$('.navigation_element').mouseenter(function(){
+	$('.navigation_element').mouseenter(function(){		
 		$(this).animate({color: "white" , backgroundColor: "#d2b48c"},800);
 	});
 
-	$('.navigation_element').mouseleave(function(){
-		$(this).animate({color: "#666666" , backgroundColor: "transparent"},400);
-	});
+	$('.navigation_element').mouseleave(
+		//checks if navigation element contains class currentPageLinkHighlight
+		//Uses that color set if it is.
+		determineNavColorOnMouseleave
+	);
+
+
 
 
 

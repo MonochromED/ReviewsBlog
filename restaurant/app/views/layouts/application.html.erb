@@ -41,21 +41,41 @@
 		    	<%if user != nil%>
 		    		
 		    		<strong> Hello, <%= user %> </strong>
-		    		<strong><%= link_to 'User Profile', userprofile_users_path , { :action => :userprofile, :class => "navigation_element"}  %> </strong>
-		    		<strong><%= link_to 'Logout', { :action => :logout}, :class => "navigation_element"  %></strong>
+		    		<strong><%= link_to 'User Profile', userprofile_users_path , 
+		    		{ :action => :userprofile, :class => 
+		    			" navigation_element 
+		    			#{controller.linkMatchesCurrentPage(userprofile_users_path)}"}  %>
+		    		</strong>
+		    		<strong><%= link_to 'Logout', { :action => :logout}, :class => 
+		    		"navigation_element"  %></strong>
 		    	<%elsif user === nil%>
-		    		<strong><%= link_to 'Login to Post', login_users_path, :class => "navigation_element"  %></strong>
+		    		<strong><%= link_to 'Login to Post', login_users_path, :class => 
+		    		"navigation_element 
+		    		#{controller.linkMatchesCurrentPage(login_users_path)}"  %>
+		    		</strong>
 		    	<%else%>
 		    	<%end%>
 
 				<% if controller.allowAccessIfUserRankAtLeast(1) %>
-		    		<strong><%= link_to 'Post News', new_news_path ,{ :class =>"navigation_element"} %></strong>
+		    		<strong><%= link_to 'Post News', new_news_path ,{ :class =>
+		    			"navigation_element 
+		    			#{controller.linkMatchesCurrentPage(new_news_path)}"} %>
+		    		</strong>
 		    	<% end %>
 
 
-	    		<strong><%= link_to 'Sign Up', register_users_path, :class => "navigation_element"  %></strong>
-	    		<strong><%= link_to 'Post a New Review', new_review_path, :class => "navigation_element"  %></strong>
-	    		<strong><%= link_to 'View Reviews', reviews_path, :class => "navigation_element"  %></strong>
+	    		<strong><%= link_to 'Sign Up', register_users_path, :class => 
+	    		"navigation_element 
+	    		#{controller.linkMatchesCurrentPage(register_users_path)}"  %>
+	    		</strong>
+	    		<strong><%= link_to 'Post a New Review', new_review_path, :class => 
+	    		"navigation_element 
+	    		#{controller.linkMatchesCurrentPage(new_review_path)}"  %>
+	    		</strong>
+	    		<strong><%= link_to 'View Reviews', reviews_path, :class => 
+	    		"navigation_element 
+	    		#{controller.linkMatchesCurrentPage(reviews_path)}"  %>
+	    		</strong>
 
 
 			</div>

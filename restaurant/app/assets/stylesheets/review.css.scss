@@ -344,10 +344,9 @@ navigation_flash_notice{
 
 
 
-
-
+//---Links and Navigation Elements----------
 a {
-  color: #666666;
+
   &:visited {
     color: #666666;
   }
@@ -355,11 +354,19 @@ a {
     color: #ffffff;
     background-color: transparent;
   }
-}
-
-a.navigation_element{
+  &.navigation_element{
+    background-color: transparent;
+  }
+  &.currentPageLinkHighlight{
+    background-color: rgba(210,180,140,0.5);
+    color: #cccccc;
+  }
   color: #666666;
 }
+
+
+
+
 
 
 
