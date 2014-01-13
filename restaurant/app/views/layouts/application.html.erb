@@ -109,7 +109,7 @@
 	</div>
 
 	<div id="pagination_panel">
-		<% if @reviews != nil || @comments != nil || @news_posts != nil || @users || @avatars %>
+		<% if @reviews != nil || @comments != nil || @news_posts != nil || @users != nil || @avatars != nil %>
 			<%= will_paginate @search_results, :previous_label => '&#8592; Prev 5', :next_label => 'Next 5 &#8594;' %>
 		<% end %>
 	</div>

@@ -120,10 +120,13 @@ class ApplicationController < ActionController::Base
   end
 
   #returns “currentPageLinkHighlight” as string if 
-  #current_page matches the argument path.
+  #current page matches the argument path or if
+  #current page is a subdirectory of the argument path.
   def linkMatchesCurrentPage(path)
     if request.fullpath === path
       "currentPageLinkHighlight" 
+    elsif request.fullpath.match("#{path}")
+      "currentPageLinkHighlight"
     end 
   end 
 

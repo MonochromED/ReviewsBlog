@@ -5,8 +5,11 @@ class NewsController < ApplicationController
   require 'will_paginate/array' #used for combining 2 SQL request objects and paginating it properly
   def index
     #@news_posts = News.order('id desc').limit(5)
+    #keep both here due to error when will paginate tries to pluralize @news.  @news
+    #allows for the the individual posts to be displayed, while @news_posts allow for
+    #pagination to function properly. 
     @news_posts = News.paginate(:page => params[:page], :per_page => 5).order('id desc')
-    
+    @news = News.paginate(:page => params[:page], :per_page => 5).order('id desc')
 
   end
 

@@ -23,5 +23,8 @@ module Restaurant
     #Uncomment if running site in HTTPS SSL mode and 
     #use 'thin start --ssl' instead of 'rails server'
     config.force_ssl = true
+
+    #Locale enforcement.  Set to false if you don't care about locales
+    config.i18n.enforce_available_locales = false
   end
 end
