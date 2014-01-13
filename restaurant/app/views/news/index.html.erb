@@ -16,7 +16,7 @@
             <%= link_to newspost.title, newspost %> <br />
             <%= newspost.date %><br />
             <%= newspost.article %><br /><br />
-            id Value: <%= newspost.id %><br/>
+            <div class="indexIdInfo">News ID: <%= newspost.id %></div><br />
           </td>
         </tr>
         <tr>
@@ -38,7 +38,9 @@
 <br />
 <% if controller.allowAccessIfUserRankAtLeast(1) %>
   <%= link_to 'New newspost', new_news_path %>
-  <% end %>
+<% end %>
+
+
 
 
 
