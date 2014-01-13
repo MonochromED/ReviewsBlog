@@ -13,6 +13,8 @@
   <strong>Article:</strong>
   <%= @news.article %>
 </p>
+
+<div class="indexIdInfo">News ID: <%= @news.id %></div><br />
 <% if controller.allowAccessIfUserRankAtLeast(1)  %>
   <%= link_to 'Edit', edit_news_path(@news) %>|
   <%= link_to 'Delete', @news, method: :delete, data: { confirm: 'Are you sure?' } %>|

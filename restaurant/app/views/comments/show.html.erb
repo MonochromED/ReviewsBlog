@@ -1,28 +1,27 @@
 
-<p>
-  <strong>Poster:</strong>
-  <%= @comment.poster %>
-</p>
 
-<p>
-  <strong>Comment ID:</strong>
-  <%= @comment.id %>
-</p>
+<strong>Poster:</strong>
+<%= @comment.poster %>
+<br />
+<div class="indexIdInfo">
 
-<p>
-  <strong>Belongs to Review ID:</strong>
-  <%= @comment.review_id %>
-</p>
+    <strong>Comment ID:</strong>
+    <%= @comment.id %>
+    <br />
 
-<p>
+
+    <strong>Belongs to Review ID:</strong>
+    <%= @comment.review_id %>
+
+</div>
+
   <strong>Date:</strong>
   <%= @comment.date %>
-</p>
+  <br />
 
-<p>
   <strong>Comment:</strong>
   <%= @comment.comment %>
-</p>
+
 <% comment_id = @comment.id %>
 <% if controller.allowAccessIfOwnerNameIsOrRankAtLeast("#{@comment.poster}", 1 ) %>
   <%= link_to 'Edit', edit_comment_path(@comment), :commentid => "#{comment_id}"  %>|
