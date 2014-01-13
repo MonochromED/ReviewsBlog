@@ -1,5 +1,5 @@
 Restaurant::Application.routes.draw do
-  root 'reviews#index'
+  
 
   get "news_posts/index"
   resources :news do
@@ -55,7 +55,8 @@ Restaurant::Application.routes.draw do
 
     end
   end
-
+  
+root 'reviews#index'
 
 
 
