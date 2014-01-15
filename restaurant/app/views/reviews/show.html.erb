@@ -30,10 +30,12 @@
    posted by: <%= comment.poster %><br />
        on: <%= comment.date %><br />
    <%= comment.comment %><br /><br />
+   <div class="indexIdInfo">
    Review ID: <%= @review.id %><br />
    Comment ID:<%= comment.id %> <br /><br />
    <%@comment_id_value = comment.id %>
    <%@review_id_value = @review.id %>
+  </div>
    <!--Validate that current logged user has ownership of this post -->
      <% if controller.allowAccessIfOwnerNameIsOrRankAtLeast("#{comment.poster}", 1) %>
        <%= link_to 'Edit', edit_comment_path(comment) %> |
