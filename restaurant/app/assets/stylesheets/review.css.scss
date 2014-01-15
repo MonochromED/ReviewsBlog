@@ -31,6 +31,7 @@ h1{
   left: 0px;
   top: 0px;
   background-color: white;
+  height: 75px;
 
 }
 
@@ -47,8 +48,23 @@ h1{
 	font-family: Verdana,Arial,sans-serif;
 	font-size: 160%;
 	color: tan;
+  width:900px;
+  margin-left: auto;
+  margin-right: auto;
 
 
+}
+
+#slogan{
+  font-size: 110%;
+  padding: 0px 0px 0px 20px;
+  font-weight: bold;
+  background-color: white;
+  z-index: 2;
+  margin-bottom: 10px;
+  color: tan;
+  width: 250px;
+  font-size: 14px;
 }
 
 #headerBannerLink{
@@ -100,8 +116,9 @@ h4{
       //border-right: 1px solid gray;
       //border-left: 1px solid gray;
       background-color: transparent;
-
+      text-align: center;
       z-index: 1;
+
 }
 
 
@@ -186,15 +203,7 @@ navigation_flash_notice{
 
 
 
-#slogan{
-	font-size: 110%;
-	padding: 0px 0px 0px 20px;
-  font-weight: bold;
-  background-color: white;
-  z-index: 2;
-  margin-bottom: 10px;
-  color: tan;
-}
+
 
 .search_bar{
       border-radius:5px;
@@ -203,11 +212,14 @@ navigation_flash_notice{
 
 
 #search_pane{
-  position: absolute;
-  top: 90px;
-  left: 35px;
-  display:inline;
-  z-index: 3;
+  position: relative;
+  top: 80px;
+  height: 0px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 600px;
+  z-index: 1;
 }
 
 #search_icon{
@@ -230,12 +242,9 @@ navigation_flash_notice{
       height: auto;
       display: none;
       border-radius: 5px;
-      background-color: #112233;
-      
-
-
-
+      background-color: #112233;    
 }
+
 
 #find_button{
       float: auto; 
