@@ -20,7 +20,9 @@
   <br />
 
   <strong>Comment:</strong>
+  <br />
   <%= @comment.comment %>
+  <br />
 
 <% comment_id = @comment.id %>
 <% if controller.allowAccessIfOwnerNameIsOrRankAtLeast("#{@comment.poster}", 1 ) %>
