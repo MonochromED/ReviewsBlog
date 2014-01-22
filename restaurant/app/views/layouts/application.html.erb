@@ -24,7 +24,7 @@
 		<div id='search_bar_area'>
 			<%= form_tag search_reviews_path , :method => 'get' do %>
     	<label><font color="tan" size="-1">Search for review:</font> </label>
-    	<%= text_field_tag :searchFor, params[:searchFor], :class =>"search_bar" %>
+    	<%= text_field_tag :searchFor, params[:searchFor], :class =>"search_bar", :id => "search_text_bar" %>
     	<%= submit_tag "Find", :class => "search_bar", :id => "find_button" %>
     	<% end %> 
 		</div>
@@ -120,7 +120,7 @@
 
 	<div id="footer" >
  		<a href="mailto:myuser@myhost.com" class="footer_text" id="contact_us_link">Contact Us</a>
- 		<font size="1" class="footer_text"> | &copy;2013 Edmund Wong </font>
+ 		<font size="1" class="footer_text"> | &copy;2014 Edmund Wong </font>
  		<br />
 
  		<% footer_image = "/assets/images/banner.jpg" %>
