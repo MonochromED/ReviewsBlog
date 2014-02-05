@@ -90,15 +90,18 @@ $(window).resize(function(){
 	//when document is resized.
 	var minDashboardMainHeight = $(document).height() - $("#footer").height();
 	$("#dashboardMain").css({"min-height": minDashboardMainHeight + "px"});
-
-	//ensure upon resize that header and footer are in correct vertical positions
-	if ($(document).height() > $(window).height() ){
+    
+    //ensure upon resize that header and footer are in correct vertical positions
+    var window_height = $(window).height();
+    var footer_and_non_footer_height = $("#non_footer").height() + $("#footer").height();
+	if (window_height < footer_and_non_footer_height){
 		$("#footer").css({"position":"relative"});
 	}
 	//when we have less document than window area
 	else{
 		$("#footer").css({"position":"absolute"});
 	}
+
 
 
 	//ensures on resize that header and footer are correct width
@@ -108,3 +111,15 @@ $(window).resize(function(){
 
 });
 
+
+
+//Ensures correct header and footer properties on browser window rotate for mobile.
+$(window).on("orientationchange", function(){
+	//Ensures that footer gets stuck to the bottom by readjusting its position relative to rest of document
+	//when document is resized.
+    var minDashboardMainHeight = 0;
+
+	$("#dashboardMain").css({"min-height": minDashboardMainHeight + "px"});
+
+
+});

@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery.mobile-1.4.0.min
 //= require jquery
 //= require jquery_ujs
 //= require jquery.color-2.1.2.min

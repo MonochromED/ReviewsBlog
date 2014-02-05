@@ -2,11 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 h1{
 	color: tan;
 	background-color: transparent;
-
+  margin-bottom: 10px;
 	
 
 }
@@ -32,6 +31,8 @@ h1{
   top: 0px;
   background-color: white;
   height: 75px;
+  text-decoration: none;
+  padding-top: 10px;
 
 }
 
@@ -67,9 +68,7 @@ h1{
   font-size: 14px;
 }
 
-#headerBannerLink{
-      text-decoration: none;
-}
+
 
 *{
 	background-color: transparent;
@@ -213,7 +212,7 @@ navigation_flash_notice{
 
 #search_pane{
   position: relative;
-  top: 80px;
+  top: 90px;
   height: 0px;
   width: 200px;
   margin-left: auto;

@@ -9,114 +9,114 @@
 
 <body id = "dashboardMain">
 	
-  <div id = "header">
-    	
-  	<a href = "/" id = "headerBannerLink"> <h1 id="headerBanner">Ed's Restaurant Reviews     		<div id="slogan">In Search of Delicious Food</div> </h1>
 
-  	</a>
-  </div>
+    <div id = "non_footer">	
+	  	<a href = "/" id = "header"> <h1 id="headerBanner">Ed's Restaurant Reviews     		<div id="slogan">In Search of Delicious Food</div> </h1>
+
+	  	</a>
 
 
-	<div id='search_pane'>
-    <div id='search_icon' class='button'> Search?<span class="infobox">
-      Click to Expand</span>
-    </div>
-		<div id='search_bar_area'>
-			<%= form_tag search_reviews_path , :method => 'get' do %>
-    	<label><font color="tan" size="-1">Search for review:</font> </label>
-    	<%= text_field_tag :searchFor, params[:searchFor], :class =>"search_bar", :id => "search_text_bar" %>
-    	<%= submit_tag "Find", :class => "search_bar", :id => "find_button" %>
-    	<% end %> 
+
+		<div id='search_pane'>
+	    <div id='search_icon' class='button'> Search?<span class="infobox">
+	      Click to Expand</span>
+	    </div>
+			<div id='search_bar_area'>
+				<%= form_tag search_reviews_path , :method => 'get' do %>
+	    	<label><font color="tan" size="-1">Search for review:</font> </label>
+	    	<%= text_field_tag :searchFor, params[:searchFor], :class =>"search_bar", :id => "search_text_bar" %>
+	    	<%= submit_tag "Find", :class => "search_bar", :id => "find_button" %>
+	    	<% end %> 
+			</div>
 		</div>
-	</div>
 
 
-    <br />
+	    <br />
 
 
-    <div id="content">
-    	<div id="navigation">
-			
-			<div id="navigation_elements_panel">
+	    <div id="content">
+	    	<div id="navigation">
+				
+				<div id="navigation_elements_panel">
 
-				<% user = controller.getUser %>
-		    	
-		    	<%if user != nil%>
-		    		
-		    		<strong> Hello, <%= user %> </strong>
-		    		<strong><%= link_to 'User Profile', userprofile_users_path , 
-		    		{ :action => :userprofile, :class => 
-		    			" navigation_element 
-		    			#{controller.linkMatchesCurrentPage(userprofile_users_path)}"}  %>
-		    		</strong>
-		    		<strong><%= link_to 'Logout', { :action => :logout}, :class => 
-		    		"navigation_element"  %></strong>
-		    	<%elsif user === nil%>
-		    		<strong><%= link_to 'Login to Post', login_users_path, :class => 
+					<% user = controller.getUser %>
+			    	
+			    	<%if user != nil%>
+			    		
+			    		<strong> Hello, <%= user %> </strong>
+			    		<strong><%= link_to 'User Profile', userprofile_users_path , 
+			    		{ :action => :userprofile, :class => 
+			    			" navigation_element 
+			    			#{controller.linkMatchesCurrentPage(userprofile_users_path)}"}  %>
+			    		</strong>
+			    		<strong><%= link_to 'Logout', { :action => :logout}, :class => 
+			    		"navigation_element"  %></strong>
+			    	<%elsif user === nil%>
+			    		<strong><%= link_to 'Login to Post', login_users_path, :class => 
+			    		"navigation_element 
+			    		#{controller.linkMatchesCurrentPage(login_users_path)}"  %>
+			    		</strong>
+			    	<%else%>
+			    	<%end%>
+
+					<% if controller.allowAccessIfUserRankAtLeast(1) %>
+			    		<strong><%= link_to 'Post News', new_news_path ,{ :class =>
+			    			"navigation_element 
+			    			#{controller.linkMatchesCurrentPage(new_news_path)}"} %>
+			    		</strong>
+			    	<% end %>
+
+
+		    		<strong><%= link_to 'Sign Up', register_users_path, :class => 
 		    		"navigation_element 
-		    		#{controller.linkMatchesCurrentPage(login_users_path)}"  %>
+		    		#{controller.linkMatchesCurrentPage(register_users_path)}"  %>
 		    		</strong>
-		    	<%else%>
-		    	<%end%>
-
-				<% if controller.allowAccessIfUserRankAtLeast(1) %>
-		    		<strong><%= link_to 'Post News', new_news_path ,{ :class =>
-		    			"navigation_element 
-		    			#{controller.linkMatchesCurrentPage(new_news_path)}"} %>
+		    		<strong><%= link_to 'Post a New Review', new_review_path, :class => 
+		    		"navigation_element 
+		    		#{controller.linkMatchesCurrentPage(new_review_path)}"  %>
 		    		</strong>
-		    	<% end %>
+		    		<strong><%= link_to 'View Reviews', reviews_path, :class => 
+		    		"navigation_element 
+		    		#{controller.linkMatchesCurrentPage(reviews_path)}"  %>
+		    		</strong>
 
 
-	    		<strong><%= link_to 'Sign Up', register_users_path, :class => 
-	    		"navigation_element 
-	    		#{controller.linkMatchesCurrentPage(register_users_path)}"  %>
-	    		</strong>
-	    		<strong><%= link_to 'Post a New Review', new_review_path, :class => 
-	    		"navigation_element 
-	    		#{controller.linkMatchesCurrentPage(new_review_path)}"  %>
-	    		</strong>
-	    		<strong><%= link_to 'View Reviews', reviews_path, :class => 
-	    		"navigation_element 
-	    		#{controller.linkMatchesCurrentPage(reviews_path)}"  %>
-	    		</strong>
+				</div>
+			</div>
 
 
+
+			<div id="main_panel">
+				<p style="color: orange"><%= flash[:notice] %></p>
+				<%= yield %><!-- the 'yield' will yield to the code located in the index.html.erb file 
+				within the current directory for the site.  Thus, if this is for the reviews/index, then yield will
+				yield to the code located within reviews/index.html.erb.  If it is accessed by
+				restaurant/index, then it will yield to the code located in the restaurant/index.html.erb code.-->
+			</div>
+			<div id="news">
+				<div id="news_minimize">
+					Minimize
+				</div>
+				<div id="news_pull_tab" class='button'>
+					<div id="news_pull_tab_text">News</div>
+					<span class="infobox">
+					Click to Expand
+					</span>
+				</div>
+				<div id="news_content">
+				<h2>What's cookin'</h2><br />
+		    	The latest restaurant news<br />
+		    	<%= render( :partial => "news/news_partial") %>
+				</div>
 			</div>
 		</div>
 
-
-
-		<div id="main_panel">
-			<p style="color: orange"><%= flash[:notice] %></p>
-			<%= yield %><!-- the 'yield' will yield to the code located in the index.html.erb file 
-			within the current directory for the site.  Thus, if this is for the reviews/index, then yield will
-			yield to the code located within reviews/index.html.erb.  If it is accessed by
-			restaurant/index, then it will yield to the code located in the restaurant/index.html.erb code.-->
-		</div>
-		<div id="news">
-			<div id="news_minimize">
-				Minimize
-			</div>
-			<div id="news_pull_tab" class='button'>
-				<div id="news_pull_tab_text">News</div>
-				<span class="infobox">
-				Click to Expand
-				</span>
-			</div>
-			<div id="news_content">
-			<h2>What's cookin'</h2><br />
-	    	The latest restaurant news<br />
-	    	<%= render( :partial => "news/news_partial") %>
-			</div>
+		<div id="pagination_panel">
+			<% if @reviews != nil || @comments != nil || @news_posts != nil || @users != nil || @avatars != nil %>
+				<%= will_paginate @search_results, :previous_label => '&#8592; Prev 5', :next_label => 'Next 5 &#8594;' %>
+			<% end %>
 		</div>
 	</div>
-
-	<div id="pagination_panel">
-		<% if @reviews != nil || @comments != nil || @news_posts != nil || @users != nil || @avatars != nil %>
-			<%= will_paginate @search_results, :previous_label => '&#8592; Prev 5', :next_label => 'Next 5 &#8594;' %>
-		<% end %>
-	</div>
-
 
 	<div id="footer" >
  		<a href="mailto:myuser@myhost.com" class="footer_text" id="contact_us_link">Contact Us</a>
