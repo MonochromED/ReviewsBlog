@@ -4,6 +4,6 @@
 //or there will be a conflict as to which element to focus on.
 
 $(document).ready(function(){
-	$("#first_field_focus").focus();	
+    $("#first_field_focus").focus();
 
 });
