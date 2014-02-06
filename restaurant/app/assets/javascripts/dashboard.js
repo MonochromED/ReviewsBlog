@@ -2,21 +2,36 @@
 
 var news_content_height = "250px";
 var height_news_minimize_tab = "100%";
+
+//------Navigation Bar Effects----------------
 var hilite_nav_element_text_color;
 var hilite_nav_element_bg_color;
 
-function determineNavColorOnMouseleave(){
-	if ($(this).hasClass("currentPageLinkHighlight")){
-		$(this).animate({
+function determineNavColorOnMouseleave(original_caller_input){
+	var original_caller = original_caller_input;
+	if (original_caller.hasClass("currentPageLinkHighlight")){
+		original_caller.animate({
 			color: hilite_nav_element_text_color,
 			backgroundColor: hilite_nav_element_bg_color},400);
 	}
 	else{
-        $(this).animate({color: "#666666" , backgroundColor: "transparent"},400);
+        original_caller.animate({color: "#666666" , backgroundColor: "transparent"},400);
 	}
 
 }
 
+function navigationElementEffectOn(){
+	$(this).animate({color: "white" , backgroundColor: "#d2b48c"},800);
+}
+
+function navigationElementEffectOff(){
+	var original_caller = $(this);
+	determineNavColorOnMouseleave(original_caller);
+}
+
+//--------------------------------------------------
+
+//-----------------On Document Ready Actions-----------------------------------
 $(document).ready(function(){
 	//Saves color of highlighted navigation element from page load state first.
 	hilite_nav_element_text_color = $(".currentPageLinkHighlight").css("color");
@@ -36,22 +51,13 @@ $(document).ready(function(){
         $('#news_content, #news_minimize').animate({width:'100%', height:"100%"}, 500 ).hide(500);
 	});
 
+	//Colors navigation elements according to hover status and page location.
+	$('.navigation_element').hoverIntent(navigationElementEffectOn , navigationElementEffectOff);
 
-	//Decorative effects on navigation bar entities
-	$('.navigation_element').mouseenter(function(){
-        $(this).animate({color: "white" , backgroundColor: "#d2b48c"},800);
-	});
-
-	$('.navigation_element').mouseleave(
-		//checks if navigation element contains class currentPageLinkHighlight
-		//Uses that color set if it is.
-		determineNavColorOnMouseleave
-	);
+//--------------------------------------------------------------------------------
 
 
-
-
-
+//------------------------Header and Footer Positioning--------------------------
 	//ensure at initialization that header and footer are in correct vertical positions
 	if ($(document).height() > $(window).height() ){
 		$("#footer").css({"position":"relative"});
@@ -112,4 +118,4 @@ $(window).resize(function(){
 
 });
 
-
+//------------------------------------------------------------------------------------------

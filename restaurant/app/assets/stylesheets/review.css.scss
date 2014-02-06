@@ -99,7 +99,9 @@ h4{
 }
 
 
-
+//----------Navigation Bar Elements---------------
+//Additional CSS found in Links Section within this file
+//dealing with current page link element highlighting.
 #navigation {
       margin: 30px;
       margin-top: 100px;
@@ -143,6 +145,9 @@ h4{
       border-radius: 25px 0px 25px 0px;
 }
 
+.navigation_element:hover{
+  color: #666666;
+}
 
 navigation_flash_notice{
   color: orange;
@@ -369,6 +374,9 @@ a {
   }
   &.currentPageLinkHighlight{
     background-color: rgba(210,180,140,0.5);
+    color: #cccccc;
+  }
+  &.currentPageLinkHighlight:hover{
     color: #cccccc;
   }
   color: #666666;
