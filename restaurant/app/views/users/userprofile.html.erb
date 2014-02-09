@@ -11,20 +11,21 @@
 	  <strong>Email: </strong> <%= userInfo.email %><br />
 	  <strong>Access Rank: </strong> <%= controller.getAccessRank %>
 	  <br />
-	  <div ><strong style="vertical-align: top">Avatar:</strong>
-	  <!--Check if user has uploaed an avatar. -->
-	  <% user_avatar = Avatar.find_by avatar_user_id: "#{user}" %>
-	  <% if user_avatar != nil %>
-	  	<%= image_tag user_avatar.avatar.url() %>
-	  </div>
-	  <%= link_to 'Upload New Avatar', edit_avatar_path(user_avatar) %>
+	  <% if controller.allowAccessIfUserRankAtLeast(1) %>
+		  <div ><strong style="vertical-align: top">Avatar:</strong>
+		  <!--Check if user has uploaed an avatar. -->
+		  <% user_avatar = Avatar.find_by avatar_user_id: "#{user}" %>
+		  <% if user_avatar != nil %>
+		  	<%= image_tag user_avatar.avatar.url() %>
+		  </div>
+		  <%= link_to 'Upload New Avatar', edit_avatar_path(user_avatar) %>
 
-	  <% else %>
-	  </div>
-	  <%= link_to 'Upload New Avatar', new_avatar_path() %>
+		  <% else %>
+		  </div>
+		  <%= link_to 'Upload New Avatar', new_avatar_path() %>
 
+		  <% end %>
 	  <% end %>
-
 	  <br />
 	  <br />
 	  
