@@ -1,6 +1,7 @@
 //application javascript for dashboard view
 
 var news_content_height = "250px";
+var height_news_minimize_tab = "100%";
 
 //------Navigation Bar Effects----------------
 var hilite_nav_element_text_color;
@@ -30,8 +31,21 @@ function navigationElementEffectOff(){
 
 //--------------------------------------------------
 //---------------News tab Expand Effect-------------
+var news_tab_on = false;
+function newsTabWasClicked(){
+
+	if (news_tab_on === false){
+		newsTabExpandEffectOn();
+		news_tab_on = true;
+	}
+	else{
+		newsTabExpandEffectOff();
+		news_tab_on = false;
+	}
+
+}
+
 function newsTabExpandEffectOn(){
-	$(this).animate({borderTopLeftRadius:"0px"});
 	$('#news_content').animate({width:'200px', height:"+" + news_content_height },500).show();
     $("#news").animate({width:"260px"},500);
 }
@@ -50,25 +64,8 @@ $(document).ready(function(){
 	hilite_nav_element_bg_color = $(".currentPageLinkHighlight").css("background-color");
 
 	//News Tab effects.
-	$('#news_pull_tab').click(function(){
+	$('#news_pull_tab').click(newsTabWasClicked);
 
-		if (!$(this).hasClass("news_tab_expanded")){
-			newsTabExpandEffectOn();
-			$(this).addClass("news_tab_expanded");
-		}
-		else{
-			newsTabExpandEffectOff();
-			$(this).removeClass("news_tab_expanded");
-		}
-
-
-	});
-	$('.news_tab_expanded').click(function(){
-		newsTabExpandEffectOn();
-		$(this).addClass("news_minimized");
-		$(this).removeClass("news_tab_expanded");
-		
-	});
 
 	//Colors navigation elements according to hover status and page location.
 	$('.navigation_element').hoverIntent(navigationElementEffectOn , navigationElementEffectOff);
