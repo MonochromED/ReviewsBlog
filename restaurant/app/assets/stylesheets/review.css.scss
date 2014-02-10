@@ -33,6 +33,11 @@ h1{
   height: 75px;
   text-decoration: none;
   padding-top: 10px;
+  width: calc(100%);
+  width: -moz-calc(100%);
+  width: -webkit-calc(100%);
+  width: -o-calc(100%);
+  width: -ms-calc(100%);
 
 
 }
@@ -264,7 +269,7 @@ navigation_flash_notice{
       padding: 0px;
       background-color: #112233;
       margin-bottom: 2px;
-      max-height: 270px;
+      max-height: 250px;
       z-index: 1;
       opacity: 0.25;
       border-radius: 10px;
@@ -309,12 +314,6 @@ navigation_flash_notice{
       display:none;
 }
 
-#news_minimize{
-      width:100%;
-      background-color: #444444;
-      display:none;
-      cursor:pointer;
-}
 
 #dashboardMain{
   min-width: 910px;
