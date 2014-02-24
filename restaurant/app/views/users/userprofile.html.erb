@@ -4,59 +4,59 @@
 <% user = controller.getUser %>
 
 <%if user != nil%>
-	<% userInfo = controller.getUserInfo("#{user}") %>
-	<%if userInfo != nil%>
+  <% userInfo = controller.getUserInfo("#{user}") %>
+  <%if userInfo != nil%>
 
-	  <strong>Username: </strong> <%= userInfo.fullname %> <br />
-	  <strong>Email: </strong> <%= userInfo.email %><br />
-	  <strong>Access Rank: </strong> <%= controller.getAccessRank %>
-	  <br />
-	  <% if controller.allowAccessIfUserRankAtLeast(1) %>
-		  <div ><strong style="vertical-align: top">Avatar:</strong>
-		  <!--Check if user has uploaed an avatar. -->
-		  <% user_avatar = Avatar.find_by avatar_user_id: "#{user}" %>
-		  <% if user_avatar != nil %>
-		  	<%= image_tag user_avatar.avatar.url() %>
-		  </div>
-		  <%= link_to 'Upload New Avatar', edit_avatar_path(user_avatar) %>
+    <strong>Username: </strong> <%= userInfo.fullname %> <br />
+    <strong>Email: </strong> <%= userInfo.email %><br />
+    <strong>Access Rank: </strong> <%= controller.getAccessRank %>
+    <br />
+    <% if controller.allowAccessIfUserRankAtLeast(1) %>
+      <div ><strong style="vertical-align: top">Avatar:</strong>
+      <!--Check if user has uploaed an avatar. -->
+      <% user_avatar = Avatar.find_by avatar_user_id: "#{user}" %>
+      <% if user_avatar != nil %>
+        <%= image_tag user_avatar.avatar.url() %>
+      </div>
+      <%= link_to 'Upload New Avatar', edit_avatar_path(user_avatar) %>
 
-		  <% else %>
-		  </div>
-		  <%= link_to 'Upload New Avatar', new_avatar_path() %>
+      <% else %>
+      </div>
+      <%= link_to 'Upload New Avatar', new_avatar_path() %>
 
-		  <% end %>
-	  <% end %>
-	  <br />
-	  <br />
-	  
-
-
-	  
-
-	Update Profile
-
-	<%= form_tag :action => :updateProfileInfo ,:userIdToEdit => "#{userInfo.userid}" do %>
-
-	<%= label_tag :email %>
-	<%= text_field_tag :emailupdate, userInfo.email %>
-
-	<br />
-	<br />
-	<%= submit_tag "Update Profile" %>
+      <% end %>
+    <% end %>
+    <br />
+    <br />
+    
 
 
-	<% end %> 
+    
+
+  Update Profile
+
+  <%= form_tag :action => :updateProfileInfo ,:userIdToEdit => "#{userInfo.userid}" do %>
+
+  <%= label_tag :email %>
+  <%= text_field_tag :emailupdate, userInfo.email %>
+
+  <br />
+  <br />
+  <%= submit_tag "Update Profile" %>
 
 
-	  
-	<%else%>
-	  <% flash[:notice] = 'Requested user not found' %>
-	<%end%>
+  <% end %> 
+
+
+    
+  <%else%>
+    <% flash[:notice] = 'Requested user not found' %>
+  <%end%>
 
 
 
-<% else %>	
-	<strong><%= link_to 'Login to see user profile', login_users_path %><br /></strong>
+<% else %>  
+  <strong><%= link_to 'Login to see user profile', login_users_path %><br /></strong>
 <% end %>
 
 
@@ -66,10 +66,10 @@
 <% user_database_reference = userInfo %>
 <% if user_database_reference != nil %>
   <% userid = user_database_reference.userid %>
-	<% if controller.allowAccessIfOwnerNameIsOrRankAtLeast("#{userid}", 1) %>
-	<%= link_to 'Delete', user_database_reference, method: :delete, 
-	data: { confirm: 'Are you sure you want to delete your account?' },
-	user_deleted: user %> |
+  <% if controller.allowAccessIfOwnerNameIsOrRankAtLeast("#{userid}", 1) %>
+  <%= link_to 'Delete', user_database_reference, method: :delete, 
+  data: { confirm: 'Are you sure you want to delete your account?' },
+  user_deleted: user %> |
     <% end %>
 <% end %>
 <%= link_to 'Back', root_path %>

@@ -1,7 +1,7 @@
 class AvatarsController < ApplicationController
   before_action :set_avatar, only: [:show, :edit, :update, :destroy]
   def index
-  	@avatars = Avatar.paginate(:page => params[:page], :per_page => 5).order('id desc')
+    @avatars = Avatar.paginate(:page => params[:page], :per_page => 5).order('id desc')
   end
 
 

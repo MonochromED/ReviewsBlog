@@ -33,8 +33,8 @@
 
 #pattern = "user"
 #User.find_each do |user|
-#	if user.userid.match("#{pattern}")
-#		user.access_rank = 3
-#		user.save
-#	end
+# if user.userid.match("#{pattern}")
+#   user.access_rank = 3
+#   user.save
+# end
 #end

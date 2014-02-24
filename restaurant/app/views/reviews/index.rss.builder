@@ -10,11 +10,11 @@ xml.rss :version => "2.0" do
 
     for review in @reviews
       xml.item do 
-    		xml.title review.title
-    		xml.description review.article
-    		xml.pubDate review.date.to_s(:rfc822)
-    		xml.link review_url(review)
-    		xml.guid review_url(review)
+        xml.title review.title
+        xml.description review.article
+        xml.pubDate review.date.to_s(:rfc822)
+        xml.link review_url(review)
+        xml.guid review_url(review)
       end
     end
   end
