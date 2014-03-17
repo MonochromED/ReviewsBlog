@@ -437,3 +437,41 @@ a {
   background-color: #aaa;
 }
 
+/*-----SVG Navigation Graphics----*/
+/*need container for SVG  as autocenter position reference
+  also note that when the div size becomes 0 height, it does not
+  push down the other elements
+  size adjust the SVG directly.*/
+.svg-nav-decoration{
+  position: relative;
+  max-width: 99%;
+  background-color: red;
+  top: -44px;
+  height: 0px;
+  margin-left: 105px;
+  z-index: 0;
+}
+
+.svg-nav-decoration-size{
+
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+}
+
+.svg-nav-decoration-hover-area{
+  fill: tan;
+  transition: fill 1s ease-in-out;
+}
+
+.svg-nav-decoration-hover-area:hover{
+  fill: tan + 100;
+  transition: fill 1s ease-in-out;
+  stroke: tan;
+  stroke-width: 2;
+  stroke-opacity: 0.3;
+  filter: blur(5px);
+}
+
+

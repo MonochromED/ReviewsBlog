@@ -50,11 +50,23 @@ function newsTabExpandEffectOn(){
     $("#news").animate({width:"260px"},500);
 }
 function newsTabExpandEffectOff(){
-    $('#news_pull_tab').animate({height:"250px", borderTopLeftRadius:"10px"},10);
-    $("#news").animate({width:"50px"},1000);
-    $('#news_content').animate({width:'100%', height:"100%"}, 500 ).hide(500);
+  $('#news_pull_tab').animate({height:"250px", borderTopLeftRadius:"10px"},10);
+  $("#news").animate({width:"50px"},1000);
+  $('#news_content').animate({width:'100%', height:"100%"}, 500 ).hide(500);
 }
 //--------------------------------------------------
+
+//------SVG Navigation Graphics Highlights Search Effect------------------
+
+function navGraphicsHighlightSearchOn(){
+  $("#search_icon").animate({"background-color":"white"});
+}
+
+function navGraphicsHighlightSearchOff(){
+  $("#search_icon").animate({"background-color":"#d2b48c"});
+}
+
+//------------------------------------------------------------------------
 
 
 //-----------------On Document Ready Actions-----------------------------------
@@ -69,6 +81,14 @@ $(document).ready(function(){
 
   //Colors navigation elements according to hover status and page location.
   $('.navigation_element').hoverIntent(navigationElementEffectOn , navigationElementEffectOff);
+
+  //SVG Navigation Graphic Highlights Search Icon Color
+
+  $(".svg-nav-decoration-hover-area").hoverIntent(
+    navGraphicsHighlightSearchOn,
+    navGraphicsHighlightSearchOff
+  );
+
 
 //--------------------------------------------------------------------------------
 
@@ -135,3 +155,5 @@ $(window).resize(function(){
 });
 
 //------------------------------------------------------------------------------------------
+
+
