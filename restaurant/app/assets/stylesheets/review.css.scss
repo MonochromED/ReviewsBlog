@@ -6,9 +6,8 @@ h1{
   color: tan;
   background-color: transparent;
   margin-bottom: 10px;
-  
-
 }
+
 
 #mainWindowHeader{
   font-size:110%;
@@ -21,9 +20,8 @@ h1{
   border-color: tan;
   border-width: 1px;
   color: tan;
-
-
 }
+
 
 #header{
   position:absolute;
@@ -38,9 +36,8 @@ h1{
   width: -webkit-calc(100%);
   width: -o-calc(100%);
   width: -ms-calc(100%);
-
-
 }
+
 
 #headerBanner{
   background: #ffffff url(/assets/images/banner.jpg) no-repeat right;
@@ -58,9 +55,8 @@ h1{
   width:900px;
   margin-left: auto;
   margin-right: auto;
-
-
 }
+
 
 #slogan{
   font-size: 110%;
@@ -78,29 +74,28 @@ h1{
 
 *{
   background-color: transparent;
-
 }
 
 h2{
- font-family: Arial,sans-serif;
- font-size: 120%;
- color: tan;
- margin: 0px;
- padding: 0px;
+  font-family: Arial,sans-serif;
+  font-size: 120%;
+  color: tan;
+  margin: 0px;
+  padding: 0px;
 }
 >h3{
- font-family: Arial,sans-serif;
- font-size: 110%;
- color: tan;
- margin: 0px;
- padding: 0px;
+  font-family: Arial,sans-serif;
+  font-size: 110%;
+  color: tan;
+  margin: 0px;
+  padding: 0px;
 }
 h4{
- font-family: Arial,sans-serif;
- font-size: 100%;
- color: tan;
- margin: 0px;
- padding: 0px;
+  font-family: Arial,sans-serif;
+  font-size: 100%;
+  color: tan;
+  margin: 0px;
+  padding: 0px;
 }
 
 
@@ -108,23 +103,23 @@ h4{
 //Additional CSS found in Links Section within this file
 //dealing with current page link element highlighting.
 #navigation {
-      margin: 30px;
-      margin-top: 100px;
-      margin-bottom: 2px;
-      float: top;
-      width: calc(100% - 80px);
-      width: -webkit-calc(100% - 80px);
-      width: -o-calc(100% - 80px);
-      width: -ms-calc(100% - 80px);
-      height: 20px;
-      padding: 10px;
-      border-bottom: 1px solid gray;
-      //border-top: 1px solid gray;
-      //border-right: 1px solid gray;
-      //border-left: 1px solid gray;
-      background-color: transparent;
-      text-align: center;
-      z-index: 1;
+  margin: 30px;
+  margin-top: 100px;
+  margin-bottom: 2px;
+  float: top;
+  width: calc(100% - 80px);
+  width: -webkit-calc(100% - 80px);
+  width: -o-calc(100% - 80px);
+  width: -ms-calc(100% - 80px);
+  height: 20px;
+  padding: 10px;
+  border-bottom: 1px solid gray;
+  //border-top: 1px solid gray;
+  //border-right: 1px solid gray;
+  //border-left: 1px solid gray;
+  background-color: transparent;
+  text-align: center;
+  z-index: 1;
 
 }
 
@@ -134,20 +129,20 @@ h4{
 }
 
 .navigation_element {
-      display: inline-block;
-      height: 20px;
-      vertical-align: text-center;
-      background-color: transparent;
-      padding-top: 5px;
-      padding-left: 15px;
-      padding-right: 15px;
-      padding-bottom: 2px;
-      transform:skewX(-20deg);
-      -webkit-transform:skewX(-20deg);
-      -ms-transform:skewX(-20deg);
-      -o-transform:skewX(-20deg);
-      text-decoration: none;
-      border-radius: 25px 0px 25px 0px;
+  display: inline-block;
+  height: 20px;
+  vertical-align: text-center;
+  background-color: transparent;
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 2px;
+  transform:skewX(-20deg);
+  -webkit-transform:skewX(-20deg);
+  -ms-transform:skewX(-20deg);
+  -o-transform:skewX(-20deg);
+  text-decoration: none;
+  border-radius: 25px 0px 25px 0px;
 }
 
 .navigation_element:hover{
@@ -162,44 +157,44 @@ navigation_flash_notice{
 
 
 #main_panel {
-      float:bottom;
-      width: 800px;
-      padding: 7px;
-      //border-left: 1px solid gray;
-      //border-right: 1px solid gray;
-      //border-bottom: 1px solid gray;
-      //border-top: 1px solid gray;
-      margin-bottom: 2px;
-      margin-left: auto;
-      margin-right: auto;
-      min-height:100%;
-      background-color: #2c4055;
+  float:bottom;
+  width: 800px;
+  padding: 7px;
+  //border-left: 1px solid gray;
+  //border-right: 1px solid gray;
+  //border-bottom: 1px solid gray;
+  //border-top: 1px solid gray;
+  margin-bottom: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height:100%;
+  background-color: #2c4055;
 
       }
 
 #pagination_panel{
-      float: bottom;
-      width: 99%;
-      text-align: center;
-      padding: 7px 0px;
-      border-bottom: 1px;
-      border-top: 1px;
-      background-color: transparent; 
+  float: bottom;
+  width: 99%;
+  text-align: center;
+  padding: 7px 0px;
+  border-bottom: 1px;
+  border-top: 1px;
+  background-color: transparent; 
 }
 
 
 #footer {
-      height: 120px;
-      position: relative;
-      bottom: 0px;
-      width: calc(100%);
-      width: -moz-calc(100%);
-      width: -webkit-calc(100%);
-      width: -o-calc(100%);
-      width: -ms-calc(100%);
+  height: 120px;
+  position: relative;
+  bottom: 0px;
+  width: calc(100%);
+  width: -moz-calc(100%);
+  width: -webkit-calc(100%);
+  width: -o-calc(100%);
+  width: -ms-calc(100%);
 
-      text-align: center;
-      background-color: white;
+  text-align: center;
+  background-color: white;
 
 
 }
@@ -216,8 +211,8 @@ navigation_flash_notice{
 
 
 .search_bar{
-      border-radius:5px;
-      display: inline-block;
+  border-radius:5px;
+  display: inline-block;
 }
 
 
@@ -233,46 +228,46 @@ navigation_flash_notice{
 }
 
 #search_icon{
-      position: relative;
-      width: 200px;
-      height: 20px;
-      background-color: tan;
-      color: black;
-      border-radius: 10px;
-      text-align: center;
-      cursor:pointer;
+  position: relative;
+  width: 200px;
+  height: 20px;
+  background-color: tan;
+  color: black;
+  border-radius: 10px;
+  text-align: center;
+  cursor:pointer;
 }
 
 
 
 #search_bar_area{
-      position: relative;
-      border: 2px solid tan;
-      width: 200px;
-      height: auto;
-      display: none;
-      border-radius: 5px;
-      background-color: #112233;    
+  position: relative;
+  border: 2px solid tan;
+  width: 200px;
+  height: auto;
+  display: none;
+  border-radius: 5px;
+  background-color: #112233;    
 }
 
 
 #find_button{
-      float: auto; 
-      padding-right: 25px;
+  float: auto; 
+  padding-right: 25px;
 }
 
 #news {
-      position: fixed;
-      right: 0px;
-      top: 100px;
-      width: 50px;
-      padding: 0px;
-      background-color: #112233;
-      margin-bottom: 2px;
-      max-height: 250px;
-      z-index: 1;
-      opacity: 0.25;
-      border-radius: 10px;
+  position: fixed;
+  right: 0px;
+  top: 100px;
+  width: 50px;
+  padding: 0px;
+  background-color: #112233;
+  margin-bottom: 2px;
+  max-height: 250px;
+  z-index: 1;
+  opacity: 0.25;
+  border-radius: 10px;
       
 }
 #news:hover{
@@ -280,16 +275,16 @@ navigation_flash_notice{
 }
 
 #news_pull_tab{
-      text-align:center;
-      vertical-align:text-center;
-      float: left;
-      width: 50px;
-      background-color: #ffffff;
-      height: 250px;
-      max-height:250px;
-      cursor:pointer;
-      border-radius:10px 0px 0px 10px;
-      opacity: 1;
+  text-align:center;
+  vertical-align:text-center;
+  float: left;
+  width: 50px;
+  background-color: #ffffff;
+  height: 250px;
+  max-height:250px;
+  cursor:pointer;
+  border-radius:10px 0px 0px 10px;
+  opacity: 1;
       
 }
 
@@ -309,9 +304,9 @@ navigation_flash_notice{
 }
 
 #news_content{
-      float: right;
-      width: 100px;
-      display:none;
+  float: right;
+  width: 100px;
+  display:none;
 }
 
 
@@ -332,19 +327,19 @@ navigation_flash_notice{
 
 
 .infobox{
-    background:#F8F8F8;
-    border: 5px solid white;
-    color: #717171;
-    font-size: 8px;
-    letter-spacing: 1px;
-    line-height: 10px;
-    position: relative;
-    text-align: center;
-    text-transform: uppercase;
-    top: -18px;
-    left:0 px;
-    display:none;
-    border-radius: 10px;
+  background:#F8F8F8;
+  border: 5px solid white;
+  color: #717171;
+  font-size: 8px;
+  letter-spacing: 1px;
+  line-height: 10px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  top: -18px;
+  left:0 px;
+  display:none;
+  border-radius: 10px;
     
 }
 
