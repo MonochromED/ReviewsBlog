@@ -20,6 +20,6 @@
 #Uncomment below to edit an existing User entry in the database.
 #--------------------------------------------------------------------
 pattern = "user6"
-editVar = User.where("userid ILIKE ?", pattern)#id should be unique, so targets only 1
+editVar = User.find_by userid: "#{pattern}" #id should be unique, so targets only 1
 editVar.access_rank = 2
 editVar.save
